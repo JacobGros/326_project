@@ -1,10 +1,10 @@
 # TEAM NAME: BACK TO BASICS
 
-# WEB APP NAME
+# WEB APP NAME: PUPG (Working Title)
 
 # Team Overview
 
-* Team Member Name 1, Github Username 1
+* Joseph Capozzi, jcapozzi2
 * Team Member Name 2, Github Username 2
 * Team Member Name 3, Github Username 3
 * Team Member Name 4, Github Username 4
