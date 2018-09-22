@@ -5,8 +5,7 @@
 # Team Overview
 
 * Joseph Capozzi, jcapozzi2
-* Team Member  2, Github Username 2
-* Team MeNamember Name 3, Github Username 3
+* Patrick Robb, PatrickRobb
 * Team Member Name 4, Github Username 4
 * Jacob Grosner, JacobGros
 
