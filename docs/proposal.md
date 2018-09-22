@@ -6,7 +6,7 @@
 
 * Joseph Capozzi, jcapozzi2
 * Patrick Robb, PatrickRobb
-* Team Member Name 4, Github Username 4
+* Brandon Loo, bloo-umass
 * Jacob Grosner, JacobGros
 
 # Innovative Idea
