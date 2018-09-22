@@ -1,6 +1,6 @@
-# TEAM NAME
+# BACK TO BASICS
 
-# WEB APPLICATION NAME
+# WEB APP NAME
 
 # Team Overview
 
