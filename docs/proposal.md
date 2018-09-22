@@ -5,10 +5,10 @@
 # Team Overview
 
 * Joseph Capozzi, jcapozzi2
-* Team Member Name 2, Github Username 2
-* Team Member Name 3, Github Username 3
+* Team Member  2, Github Username 2
+* Team MeNamember Name 3, Github Username 3
 * Team Member Name 4, Github Username 4
-* Team Member Name 5, Github Username 5
+* Jacob Grosner, JacobGros
 
 # Innovative Idea
 
