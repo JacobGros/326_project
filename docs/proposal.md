@@ -6,12 +6,12 @@
 
 * Joseph Capozzi, jcapozzi2
 * Patrick Robb, PatrickRobb
-* Brandon Loo, bloo-umass
+* Team Member Name 4, Github Username 4
 * Jacob Grosner, JacobGros
 
 # Innovative Idea
 
-A website that allows users to upload picures of their own pets and allows them to vote on which pet they think is cuter. 
+A website that allows users to upload picures of their own pets and allows them to vote on which pet they think is cuter. It uses a bracket system to keep the record and users can view he rankings of pets and filter by categories like size, gender, species, etc. Users can log-in to the site so that it is not anonymous.    
 
 # Important Data
 
