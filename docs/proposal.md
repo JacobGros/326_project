@@ -11,7 +11,7 @@
 
 # Innovative Idea
 
-Please describe your team's innovative idea for your project.
+A website that allows users to upload picures of their own pets and allows them to vote on which pet they think is cuter. 
 
 # Important Data
 
