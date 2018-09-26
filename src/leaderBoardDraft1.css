@@ -1,0 +1,23 @@
+body{
+   background-image: url("https://4.bp.blogspot.com/-NHrohYbO8p0/Vr_Ge7Fr6XI/AAAAAAAAjV8/k5gR4HsYwJ8/s1600/trophy-shop-image.jpg");
+  font-family: Arial; 
+  
+}
+
+h1{
+  font-size: 70px;
+  color: white;
+  font-family: Impact;
+text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+h2{
+  font-size: 20px;
+  color: white;
+  font-family: Arial;
+text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+label{
+  color: white;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
