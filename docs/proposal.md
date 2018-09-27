@@ -32,7 +32,7 @@ The user interface will feature a picture for each pet that was submitted by the
 On the versus page, user will vote between two pets, which is the cutest. These votes will be used in a bracket-style tournament to determine the cutest pets!
 
 ![LeaderBoardPage](imgs/LeaderBoardUI.png)
-On the leaderboard page, users will see how the pets ranked! 
+On the leaderboard page, users will see how the pets ranked! They can filter the results by species as well. 
 
 ![UserProfilePage](imgs/UserProfileUI.png)
 On the user profile page, users can see their pets they've submitted, their personal info, and can edit their info. 
