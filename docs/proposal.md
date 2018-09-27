@@ -38,6 +38,6 @@ On the leaderboard page, users will see how the pets ranked!
 On the user profile page, users can see their pets they've submitted, their personal info, and can edit their info. 
 
 ![SubmitUIPage](imgs/SubmitUI.png)
-On the subnit page, users can submit a picture of their pet, and check what species it is in the box. 
+On the submit page, users can submit a picture of their pet, and check what species it is in the box. 
 
 
