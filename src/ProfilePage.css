@@ -1,0 +1,63 @@
+body{
+  background-color: Gainsboro;
+  font-family: Arial;  
+}
+.username {
+  font-weight: bold;
+  text-align: center;
+  margin: 5px;
+}
+.info {
+    margin: 15px;
+}
+.block{
+   float: center;
+   margin: auto;
+   width: 1002px;
+   height: 600px;
+   position:relative;
+}
+.b1 {
+   background-color: Lavender;
+   border: 1px solid black;
+   width: 296px;
+   height: 550px;
+   float: left;
+}
+.b2 {
+    background-color: SkyBlue;
+    border: 1px solid black;
+    width: 500px;
+    height: 48px;
+    float: left;
+}
+.b3 {
+    background-color: Lavender;
+    border: 1px solid black;
+    width: 700px;
+    height: 350px;
+    float: left;
+}
+.pet {
+  margin: 10px 15px;
+}
+.user {
+      margin: 50px;
+}
+.butn {
+    background-color: LightSkyBlue;
+    width: 297px;
+    height: 50px;
+    font-size: 16px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.butn:hover {background: gray;}
+#button {
+position:absolute;
+     top:0;
+   right:0;
+}
+
+
+}
