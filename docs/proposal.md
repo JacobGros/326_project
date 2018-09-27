@@ -29,6 +29,15 @@ application will intend on supporting.
 The user interface will feature a picture for each pet that was submitted by the user. They are used to represent that particular entity in the database and its rank on the rank page. 
 
 ![VersusPage](imgs/VersusUI.png)
+On the versus page, user will vote between two pets, which is the cutest. These votes will be used in a bracket-style tournament to determine the cutest pets!
+
 ![LeaderBoardPage](imgs/LeaderBoardUI.png)
+On the leaderboard page, users will see how the pets ranked! 
+
 ![UserProfilePage](imgs/UserProfileUI.png)
+On the user profile page, users can see their pets they've submitted, their personal info, and can edit their info. 
+
+![SubmitUIPage](imgs/SubmitUI.png)
+On the subnit page, users can submit a picture of their pet, and check what species it is in the box. 
+
 
