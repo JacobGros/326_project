@@ -41,6 +41,7 @@ On the user profile page, users can see their pets they've submitted, their pers
 On the submit page, users can submit a picture of their pet, and check what species it is in the box. 
 
 ![WelcomePage](imgs/welcome%20page%20picture.PNG)
+The welcome page welcomes users to the site and gives a brief description of the website and allows you to use the navbar to select which page you would like to visit first each time you visit the site.
 
 
 
