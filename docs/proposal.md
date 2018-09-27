@@ -31,5 +31,6 @@ The user interface will feature a picture for each pet that was submitted by the
 ![VersusPage](imgs/VersusUI.png)
 ![LeaderBoardPage](imgs/LeaderBoardUI.png)
 ![UserProfilePage](imgs/UserProfileUI.png)
+![SubmitUIPage](imgs/SubmitUI.png)
 
 
