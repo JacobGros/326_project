@@ -40,4 +40,7 @@ On the user profile page, users can see their pets they've submitted, their pers
 ![SubmitUIPage](imgs/SubmitUI.png)
 On the submit page, users can submit a picture of their pet, and check what species it is in the box. 
 
+![WelcomePage](imgs/Welcome page picture.png)
+
+
 
