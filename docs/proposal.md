@@ -31,5 +31,5 @@ The user interface will feature a picture for each pet that was submitted by the
 ![VersusPage](imgs/VersusUI.png)
 ![LeaderBoardPage](imgs/LeaderBoardUI.png)
 ![UserProfilePage](imgs/UserProfileUI.png)
-https://github.com/JacobGros/pets/blob/master/docs/imgs/Screen%20Shot%202018-09-27%20at%206.27.24%20PM.png?raw=true
+
 
