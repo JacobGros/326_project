@@ -26,5 +26,7 @@ Top scorers: daily top pets
 Provide a description and images of the user interface your
 application will intend on supporting.
 
-![example image](imgs/chick.jpg)
+![VersusPage](imgs/VersusUI.png)
+![LeaderBoardPage](imgs/LeaderBoardUI.png)
+![UserProfilePage](imgs/UserProfileUI.png)
 
