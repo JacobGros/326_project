@@ -26,6 +26,8 @@ Top scorers: daily top pets
 Provide a description and images of the user interface your
 application will intend on supporting.
 
+The user interface will feature a picture for each pet that was submitted by the user. They are used to represent that particular entity in the database and its rank on the rank page. 
+
 ![VersusPage](imgs/VersusUI.png)
 ![LeaderBoardPage](imgs/LeaderBoardUI.png)
 ![UserProfilePage](imgs/UserProfileUI.png)
