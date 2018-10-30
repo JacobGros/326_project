@@ -10,7 +10,10 @@ class Pet(models.Model):
     vote_count = models.IntegerField()
     pet_owner = models.CharField(max_length=20, help_text='Enter Owner ID')
     age = models.IntegerField()
-    vote_count  = models.IntegerField()
+    
+    def __str__(self):
+        return "Name:  "+ self.name + "     Species: " + self.animal_type + "     Vote Count: " + str(self.vote_count)
+    
 
 class User(models.Model):
     name = models.CharField(max_length=20, help_text='Enter Name')
