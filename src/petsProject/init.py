@@ -11,7 +11,7 @@ def populate():
         age="2"
         )
 
-    add_page(pet=python_pet,
+    add_pet(pet=python_pet,
         name="Bob",
         animal_breed="Dog"
         pid="5"
@@ -19,7 +19,7 @@ def populate():
         age="1"
         )
 
-    add_page(pet=python_pet,
+    add_pet(pet=python_pet,
         name="Randy",
         animal_breed="Cat"
         pid="2"
@@ -37,7 +37,7 @@ def populate():
         age="3"
         )
 
-    add_page(cat=django_cat,
+    add_pet(cat=django_cat,
         name="Bob",
         animal_breed="Dog"
         pid="5"
@@ -45,7 +45,7 @@ def populate():
         age="1"
         )
 
-    add_page(cat=django_cat,
+    add_pet(cat=django_cat,
         name="Fred",
         animal_breed="Dog"
         pid="4"
