@@ -11,12 +11,12 @@ class Pet(models.Model):
     pet_owner = models.ForeignKey('User', on_delete=models.SET_NULL, null = True)
     #pet_owner = models.CharField(max_length=20, help_text='Enter Owner ID')
     age = models.IntegerField()
-    #image = models.ImageField(upload_to = this.pid) 
+    picture = models.ImageField(max_length = 255) 
 
 
 
     def __str__(self):
-        return "Name:  "+ self.name + "     Species: " + self.animal_type + "     Vote Count: " + str(self.vote_count)
+        return "Name:  "+ self.name +  "     Picture: " + self.picture.name + "     Species: " + self.animal_type + "     Vote Count: " + str(self.vote_count)
     
 
 class User(models.Model):
