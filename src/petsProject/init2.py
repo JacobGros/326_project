@@ -26,7 +26,7 @@ for x in range(400):
 
     img  = Image.open("media/" + str(pic) + ".jpg")
     thumb_io = BytesIO()
-    img.save(thumb_io, img.format, quality=90)
+    #img.save(thumb_io, img.format, quality=90)
 
     pet = Pet(name = fake.first_name(), animal_type = species[s], animal_breed = "unknown", pid = x, vote_count = random.randint(0,1000), pet_owner = users[u],
             age = random.randint(1,15))
