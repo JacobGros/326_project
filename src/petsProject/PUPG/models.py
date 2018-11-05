@@ -8,7 +8,7 @@ class Pet(models.Model):
     animal_breed = models.CharField(max_length=20, help_text='Enter Breed')
     pid = models.IntegerField()
     vote_count = models.IntegerField()
-    pet_owner = models.ForeignKey('User', on_delete=models.SET_NULL, null = True)
+    pet_owner = models.ForeignKey('Person', on_delete=models.SET_NULL, null = True)
     #pet_owner = models.CharField(max_length=20, help_text='Enter Owner ID')
     age = models.IntegerField()
     picture = models.ImageField(max_length = 255) 
@@ -31,3 +31,24 @@ class User(models.Model):
 
     def __str__(self):
         return "Name: " + self.name + " Username: " + self.username + " Password: " + self.password
+
+
+
+
+
+
+class Person(models.Model):
+    name = models.CharField(max_length=20, help_text='Enter Name')
+    User_id = models.IntegerField()
+    pet_id = models.IntegerField()
+    username = models.CharField(max_length=20, help_text='Enter Username')
+    password = models.CharField(max_length=20, help_text='Enter Password')
+    age = models.IntegerField()
+    country = models.CharField(max_length=20, help_text='Enter Country')
+
+
+    def __str__(self):
+        return "Name: " + self.name + " Username: " + self.username + " Password: " + self.password
+
+
+

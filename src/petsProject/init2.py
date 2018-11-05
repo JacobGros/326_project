@@ -1,10 +1,12 @@
 import random
 from faker import Faker
 from io import BytesIO
-from PUPG.models import Pet, User
+from PUPG.models import Pet, Person
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.core.files.base import ContentFile
 from PIL import Image
+from django.contrib.auth.models import User
+
 
 fake = Faker()
 
@@ -14,7 +16,7 @@ species = ["Dog", "Cat", "Mouse", "Hampster", "Lizard", "Snake", "Fish", "Snail"
 
 users = []
 for x in range(300):
-    user = User(name = fake.first_name() + " " + fake.last_name(), User_id = x, pet_id = 123,  username = fake.text(25).replace(" ", ""),  password = fake.text(25).replace(" ", ""),  age = 36, country = "USA" )
+    user = Person(name = fake.first_name() + " " + fake.last_name(), User_id = x, pet_id = 123,  username = fake.text(25).replace(" ", ""),  password = fake.text(25).replace(" ", ""),  age = 36, country = "USA" )
     users.append(user)
     user.save()
 
@@ -43,18 +45,46 @@ for pet in Pet.objects.all():
     print(pet)
 
 
-print('All User Instances: ')
-for user in User.objects.all():
+print('All Person Instances: ')
+for user in Person.objects.all():
     print(user)
 
 
 
-for user in User.objects.all():
+for user in Person.objects.all():
     print("")
     print(user.name + " pets: ")
     for p in Pet.objects.all():
         if p.pet_owner == user:
             print(p)
     print("")
+
+username = "admin"
+password = "admin"
+email = "admin@326.edu"
+adminuser = User.objects.create_user(username, email, password)
+adminuser.save()
+adminuser.is_superuser = True
+adminuser.is_staff = True
+adminuser.save()
+message = f"""
+====================================================================
+The database has been setup with the following credentials:
+
+  username: {username}
+  password: {password}
+  email: {email}
+
+You will need to use the username {username} and password {password}
+to login to the administrative webapp in Django.
+
+Please visit http://localhost:8080/admin to login to the admin app.
+Run the django server with:
+
+  $ python3 manage.py runserver 0.0.0.0:8080
+====================================================================
+"""
+print(message)
+
 
 
