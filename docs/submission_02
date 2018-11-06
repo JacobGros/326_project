@@ -15,3 +15,7 @@ ____________________________________________________________________
 
 Problems/Successes:
 There were some initial issues with running the server properly, using init.py, as well as using image fields.
+In addition, there were issues with being able to consistently meet up due to conflicts with schedules.  Compared to the last project phase, we weren't able to divide and independelty work on the project
+as effectively because most of the components are interconnected.  There have also been some technical issues occuring for our computers.
+
+We have sucessfully set up a means of storing and populating a database for our project.
