@@ -45,10 +45,10 @@ def leaderboard(request):
 
 def submit(request):
     num_pets = Pet.objects.all().count()
-    return render(request, "index.html", context=context)
-    conext = {
+    context = {
             "num_pets": num_pets,
             }
+    return render(request, "submit.html", context=context)
 
 class petsview(generic.ListView):
     model = Pet
