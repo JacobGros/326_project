@@ -15,15 +15,15 @@ species = ["Dog", "Cat", "Mouse", "Hampster", "Lizard", "Snake", "Fish", "Snail"
  
 
 users = []
-for x in range(300):
+for x in range(150):
     user = Person(name = fake.first_name() + " " + fake.last_name(), User_id = x, pet_id = 123,  username = fake.text(25).replace(" ", ""),  password = fake.text(25).replace(" ", ""),  age = 36, country = "USA" )
     users.append(user)
     user.save()
 
-for x in range(400):
+for x in range(200):
     
     s = random.randint(0,13)
-    u = random.randint(0,299)
+    u = random.randint(0,149)
     pic = random.randint(1,15)
 
     img  = Image.open("media/" + str(pic) + ".jpg")
