@@ -1,0 +1,29 @@
+{% extends "generic.html" %}
+
+{% block content %}
+<h1>Submit your pets!</h1> 
+      <h2>Do you think your pet has what it takes to compete and win in a cuteness based competition? If so, submit pictures of your pet and share the cuteness with others.</h2>
+      <img class="img-responsive img-rounded" src="https://millbafs.com/wp-content/uploads/2014/01/group-of-pets-together-15229056.jpg" height=100px>
+      <div class="row">
+            <div class="col-sm-2">
+                <label>
+                    <input type="checkbox" name="Dog" unchecked>Dog</label>
+            </div>
+            <div class="col-sm-2">
+                <label>
+                    <input type="checkbox" name="Cat" unchecked>Cat</label>
+            </div>
+            <div class="col-sm-2">
+                <label>
+                    <input type="checkbox" name="Bird" unchecked>Bird</label>
+            </div>
+            <div class="col-sm-2">
+                <label>
+                    <input type="checkbox" name="Mouse" unchecked>Mouse</label>
+            </div>
+        </div>
+      <label class="btn btn-default">
+    Browse <input type="file" hidden>
+</label>
+      <button type="button">Submit!</button>
+{% endblock %}
