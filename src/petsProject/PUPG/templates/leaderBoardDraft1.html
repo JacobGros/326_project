@@ -1,0 +1,107 @@
+
+{% extends "generic.html" %}
+
+<!DOCTYPE html>
+<html>
+
+{% block content %}
+<head>
+<title>LeaderBoard</title>
+<link rel="stylesheet" href="leaderBoardDraft1.css">
+</head>
+<style>
+table {
+    font-family: arial;
+    color: white;
+    border-collapse: collapse;
+    width: 100%;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    #background-color: #dddddd;
+   
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+ <h1 align="center">Leader Board</h1>
+
+<table>
+  <tr>
+    <th>RANK</th>
+    <th>PET</th>
+    <th>OWNER</th>
+    <th># OF VOTES</th>
+  </tr>
+
+
+
+
+  {% for pet in ordered_pets %}
+
+<tr>
+	<td>{{forloop.counter}}</td>
+	<td>
+
+		<img src ={{pet.picture.url}}, style="width:100px;height:100px;">
+		{{pet.name}}</td>
+	<td>{{pet.pet_owner.name}}</td>
+    	<td>{{pet.vote_count}}</td>
+	 
+</tr>
+
+		
+		
+{% endfor %}
+ 
+
+</table>
+
+
+<body>
+  <div class="container-fluid">
+   <div class="row">
+     <div class="col-lg-2"></div>
+  <div class="col-lg-8">
+ 
+  
+     </div>
+     <div class="row">
+     <div class="col-lg-2"></div>
+   </div>
+  </div>
+   
+  
+<h2 align="left">Filter By Species:</h2>    
+ <input type="checkbox" name="showAll"> <label for=myCheckbox> All Species </label>
+    
+ <input type="checkbox" name="showDogs"> <label for=myCheckbox> Dogs </label>
+    
+<input type="checkbox" name="showCats"> <label for=myCheckbox> Cats </label>
+    
+<input type="checkbox" name="showRabbits"> <label for=myCheckbox> Rabbits </label>
+    
+<input type="checkbox" name="showLizards"> <label for=myCheckbox> Lizards </label>
+    
+<input type="checkbox" name="showSnakes"> <label for=myCheckbox> Snakes </label>
+    
+<input type="checkbox" name="showBirds"> <label for=myCheckbox> Birds </label>
+    
+<input type="checkbox" name="showHampsters"> <label for=myCheckbox> Hampsters </label>
+      
+<input type="checkbox" name="showFish"> <label for=myCheckbox> Fish </label>
+    
+ <input type="checkbox" name="showMice"> <label for=myCheckbox> Mice </label>
+</body>
+
+{% endblock %}
+</html>

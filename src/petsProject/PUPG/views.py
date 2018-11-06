@@ -21,10 +21,27 @@ def index(request):
 
 def leaderboard(request):
     num_pets = Pet.objects.all().count()
-    return render(request, "index.html", context=context)
+
+    ordered_pets = []
+
     context = {
-            "num_pets": num_pets,
-            }
+                "num_pets": num_pets,
+                }
+
+    
+    for pet in Pet.objects.all().order_by('-vote_count'):
+        ordered_pets.append(pet)
+
+    #for x in range(len(ordered_pets)):
+       # context = context+  {str(x+1) + "_place": ordered_pets[x] }
+     #   context[str(x+1) + "_place"] = ordered_pets[x]
+ 
+    context["ordered_pets"] = ordered_pets 
+
+
+    return render(request, "leaderBoardDraft1.html", context=context)
+
+
 
 def submit(request):
     num_pets = Pet.objects.all().count()
