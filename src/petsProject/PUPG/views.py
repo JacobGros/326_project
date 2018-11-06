@@ -6,16 +6,24 @@ from django.views import generic
 
 def index(request):
 
-     num_pets = Pet.objects.all().count()
-     num_people = Person.objects.all().count()
+    num_pets = Pet.objects.all().count()
+    num_people = Person.objects.all().count()
 
 
-     context = {
+    ordered_pets = []
+
+    for pet in Pet.objects.all().order_by('-vote_count'):
+        ordered_pets.append(pet)
+
+    
+
+    context = {
             "num_pets": num_pets,
             "num_people": num_people,
+            "winner":ordered_pets[0]
             }
 
-     return render(request, "index.html", context=context)
+    return render(request, "index.html", context=context)
 
 
 
