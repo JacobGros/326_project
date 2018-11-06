@@ -25,7 +25,14 @@ def index(request):
 
     return render(request, "index.html", context=context)
 
+def vote(request):
+    num_pets = Pet.objects.all().count()
+    num_people = Person.objects.all().count()
+    context = {
+                "num_pets": num_pets,
+                }
 
+    return render(request, "vote.html", context=context)
 
 def leaderboard(request):
     num_pets = Pet.objects.all().count()
