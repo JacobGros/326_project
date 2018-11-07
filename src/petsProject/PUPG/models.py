@@ -54,7 +54,4 @@ class Person(models.Model):
      
     def get_absolute_url(self):
          return reverse("person-detail", args=[str(self.id)])
-#class PersonInstance(models.Model):
-    #id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='Unique ID for this particular book across whole library')
-    #person = models.ForeignKey("Person", on_delete=models.SET_NULL, null=True)
 
