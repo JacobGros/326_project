@@ -14,7 +14,9 @@ class Pet(models.Model):
     #pet_owner = models.CharField(max_length=20, help_text='Enter Owner ID')
     age = models.IntegerField()
     picture = models.ImageField(max_length = 255) 
-
+    
+    def get_absolute_url(self):
+        return reverse("pet-detail", args=[str(self.id)])
 
 
     def __str__(self):
@@ -38,7 +40,6 @@ class User(models.Model):
 
 
 
-
 class Person(models.Model):
     name = models.CharField(max_length=20, help_text='Enter Name')
     User_id = models.IntegerField()
@@ -50,8 +51,10 @@ class Person(models.Model):
 
     def __str__(self):
         return "Name: " + self.name + " Username: " + self.username + " Password: " + self.password
-
-class PersonInstance(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='Unique ID for this particular book across whole library')
-    person = models.ForeignKey("Person", on_delete=models.SET_NULL, null=True)
+     
+    def get_absolute_url(self):
+         return reverse("person-detail", args=[str(self.id)])
+#class PersonInstance(models.Model):
+    #id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='Unique ID for this particular book across whole library')
+    #person = models.ForeignKey("Person", on_delete=models.SET_NULL, null=True)
 

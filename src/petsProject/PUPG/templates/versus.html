@@ -4,17 +4,17 @@
 {% block content %}
 <HTML>
 <link rel="stylesheet" versus.css">
-  <body background="https://ipack.info/wp-content/uploads/2015/11/Pink-spakles-video-background.jpg">
+  
     <center> <br><br>
       <font size="13"><b> CHOOSE THE CUTEST PET!
         <br><br>
 	 <img src="{{c1.picture.url}}" style="width:250px;height:250px;">   &nbsp;   VS  &nbsp; <img src="{{c2.picture.url}}" style="width:250px;height:250px;">
 	 <br>
 
-
-<font size="4"><b>{{c1.name}} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; {{c2.name}} 
+	 <font size="4"><b><a href="{{ c1.get_absolute_url }}">{{ c1.name }}</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; <a href="{{ c2.get_absolute_url }}">{{ c2.name }}</a>
+ 
       <br>
-      Owner:  {{c1.pet_owner.name}} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Owner: {{c2.pet_owner.name}}
+      Owner:  <a href="{{ c1.pet_owner.get_absolute_url }}">{{ c1.pet_owner.name }}</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Owner: <a href="{{ c2.pet_owner.get_absolute_url }}">{{ c2.pet_owner.name }}</a>
 
 	<br> 
 

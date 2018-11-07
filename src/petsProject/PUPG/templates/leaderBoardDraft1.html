@@ -54,8 +54,8 @@ tr:nth-child(even) {
 
 	  
 	<img src="{{pet.picture.url}}" style="width:100px;height:100px;">
-		{{pet.name}}</td>
-	<td>{{pet.pet_owner.name}}</td>
+	<a href="{{ pet.get_absolute_url }}">{{ pet.name }}</a></td>
+	<td><a href="{{ pet.pet_owner.get_absolute_url }}">{{ pet.pet_owner.name }}</a></td>
     	<td>{{pet.vote_count}}</td>
 	 
 </tr>

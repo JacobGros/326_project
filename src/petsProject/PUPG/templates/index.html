@@ -1,21 +1,25 @@
 {% extends "generic.html" %}
 
+<head>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/genericstyles.css' %}">
+</head>>
+
 {% block content %}
 
 <h1>Welcome to PUPG! Cute pictures are at your fingertips!</h1>
 
-<h2>Dynamic content</h2>
 
 <ul>
 	<li><strong>Pet Submissions:</strong> {{ num_pets }}</li>
 	<li><strong>Users:</strong> {{ num_people }}</li>
-</ul>
+</ul> 
 
-<strong>Winner:</strong> {{winner.name}}
+<p>Winner: </p><a href="{{ winner.get_absolute_url }}">{{ winner.name }}</a>
 
-<img src="{{winner.picture.url}}" style="width:200px;height:200px;">  
+<p>Owned by: </p> <a href="{{ winner.pet_owner.get_absolute_url }}">{{ winner.pet_owner.name }}</a>
 
-Owned by:  {{winner.pet_owner.name}} 
+<img src="{{winner.picture.url}}" style="width:100px;height:100px;">
 
 
 {% endblock %}
