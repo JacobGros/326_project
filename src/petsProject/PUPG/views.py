@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+import random
 from PUPG.models import Person, Pet
 from django.views import generic
 # Create your views here.
@@ -28,11 +28,31 @@ def index(request):
 def vote(request):
     num_pets = Pet.objects.all().count()
     num_people = Person.objects.all().count()
+    
+    x = random.randint(0, Pet.objects.all().count()-1)
+    
+    
+    contender1 =  Pet.objects.all()[x]
+    
+    x = random.randint(0, Pet.objects.all().count()-1)
+
+    contender2 =  Pet.objects.all()[x]
+
+
+    while (contender1 == contender2):
+        
+        x = random.randint(0, Pet.objects.all().count()-1)
+        contender2 =  Pet.objects.all()[x]
+
+
+    
+
     context = {
-                "num_pets": num_pets,
+                "c1": contender1,
+                "c2": contender2,
                 }
 
-    return render(request, "vote.html", context=context)
+    return render(request, "versus.html", context=context)
 
 def leaderboard(request):
     num_pets = Pet.objects.all().count()

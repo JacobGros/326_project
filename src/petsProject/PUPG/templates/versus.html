@@ -1,0 +1,26 @@
+
+{% extends "generic.html" %}
+
+{% block content %}
+<HTML>
+<link rel="stylesheet" versus.css">
+  <body background="https://ipack.info/wp-content/uploads/2015/11/Pink-spakles-video-background.jpg">
+    <center> <br><br>
+      <font size="13"><b> CHOOSE THE CUTEST PET!
+        <br><br>
+	 <img src="{{c1.picture.url}}" style="width:250px;height:250px;">   &nbsp;   VS  &nbsp; <img src="{{c2.picture.url}}" style="width:250px;height:250px;">
+	 <br>
+
+
+<font size="4"><b>{{c1.name}} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; {{c2.name}} 
+      <br>
+      Owner:  {{c1.pet_owner.name}} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Owner: {{c2.pet_owner.name}}
+
+	<br> 
+
+      <button type="button">Vote for {{c1.name}}</button> <!&emsp; &emsp; &emsp; &emsp; &emsp;> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <button type="button">Vote for {{c2.name}}</button>
+
+
+
+{% endblock %}
