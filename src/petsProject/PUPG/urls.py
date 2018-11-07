@@ -4,10 +4,11 @@ from PUPG import views
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("pets/", views.petsview.as_view(), name="pets"),
     path("submit/", views.submit, name="submit"),
     path("leaderboard/", views.leaderboard, name="leaderboard"),
-    path("vote/", views.vote, name="vote")
+    path("vote/", views.vote, name="vote"),
+    path('person/<int:pk>', views.PersonDetailView.as_view(), name='person-detail'),
+    path('pet/<int:pk>', views.PetDetailView.as_view(), name='pet-detail'),
 ]
 
 

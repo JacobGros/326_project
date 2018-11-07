@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+import uuid
 
 # Create your models here.
 class Pet(models.Model):
@@ -49,5 +51,7 @@ class Person(models.Model):
     def __str__(self):
         return "Name: " + self.name + " Username: " + self.username + " Password: " + self.password
 
-
+class PersonInstance(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='Unique ID for this particular book across whole library')
+    person = models.ForeignKey("Person", on_delete=models.SET_NULL, null=True)
 

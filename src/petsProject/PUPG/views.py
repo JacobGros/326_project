@@ -65,6 +65,10 @@ def submit(request):
             }
     return render(request, "submit.html", context=context)
 
-class petsview(generic.ListView):
+class PersonDetailView(generic.DetailView):
+    model = Person
+    template_name = "person_detail.html"
+
+class PetDetailView(generic.DetailView):
     model = Pet
-    
+    template_name = "pet_detail.html"

@@ -1,0 +1,13 @@
+{% extends "generic.html" %}
+
+{% block content %}
+
+<img src="{{pet.picture.url}}" style="width:100px;height:100px;">
+<p><strong>Name:</strong> {{ pet.name }}</p>
+<p><strong>Vote Count:</strong> {{ pet.vote_count }}</p>
+<p><strong>Age:</strong> {{ pet.age }}</p>
+<p><strong>Species:</strong> {{ pet.animal_type }}</p>
+
+
+
+{% endblock %}
