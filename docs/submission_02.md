@@ -7,7 +7,7 @@ will not be reset.
 Team Members: 
 Joseph Capozzi, Brandon Loo, Jacob Grosner, Patrick Robb
 
-Video Link:
+Video Link:https://www.youtube.com/watch?v=9h2GisyF6_I&feature=youtu.be
 ____________________________________________________________________
 
 Design Overview:
