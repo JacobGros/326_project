@@ -11,7 +11,7 @@ Video Link:https://www.youtube.com/watch?v=9h2GisyF6_I&feature=youtu.be
 ____________________________________________________________________
 
 Design Overview:
-![DatabaseOverview](imgs/database overview.png)
+![DatabaseDiagram](imgs/database_diagram.png)
 Here is the final version of our database diagram that displays our two classes: Person and Pet, as well as their contents.
 
 ![Models](imgs/models_image.png)
