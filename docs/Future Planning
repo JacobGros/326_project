@@ -1,0 +1,43 @@
+Features we want but don’t have yet:
+
+Home Page needs to display random stats We can do this easily by querying the database in views.py to generate the necessary data.
+	Stats: 
+		User with most votes
+		Species with most votes
+		Number of Users
+		Number of Pets 
+		Age With Most Votes
+		
+	
+
+User Page needs total number of votes for all pets displayed. Also done easily enough with database 
+
+User page needs a picture displayed 
+
+
+FOR THE NEAR FUTURE:
+	MEET ON THURSDAY -> FOLLOW INSTRUCTIONS 
+	ON THURSDAY -> SPLIT UP WORK AMONG EVERYONE
+	CHECKUP ON BRANDON AND JOSEPH’S STATS/SENTENCE GENERATOR 
+
+FOR THE FAR FUTURE:
+	ASK COMMUNITY SLACK CHANNEL TO SUBMIT THEIR PET PICTURES 
+	ASK OUR PALS FOR CUTE PETS(PICTURES)
+	
+	
+
+
+
+FINALIZE THE SPECIES OF PETS:
+
+1.Dog
+2.Cat
+3.Reptile 
+4.Fish
+5.Birds
+6.Horse
+7.Reptile
+8.Small Mammals 
+9.Rock 
+10.Bugs 
+
