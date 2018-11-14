@@ -21,6 +21,7 @@ def index(request):
             "num_pets": num_pets,
             "num_people": num_people,
             "winner":ordered_pets[0]
+            " ":ordered_pets[random.randint(0,200)]
             }
 
     return render(request, "index.html", context=context)
