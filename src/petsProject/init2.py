@@ -59,6 +59,17 @@ for user in Person.objects.all():
             print(p)
     print("")
 
+#regular user
+usern = "Harold"
+pw = "moose_123"
+em = "harold@326.edu"
+reguser = User.objects.create_user(usern, em, pw)
+reguser.save()
+
+
+
+
+
 username = "admin"
 password = "admin"
 email = "admin@326.edu"
