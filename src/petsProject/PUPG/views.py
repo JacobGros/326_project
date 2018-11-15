@@ -20,7 +20,7 @@ def index(request):
     context = {
             "num_pets": num_pets,
             "num_people": num_people,
-            "winner": ordered_pets[0]
+            "winner": ordered_pets[0],
             "random pet": ordered_pets[random.randint(0,200)]
             }
 
