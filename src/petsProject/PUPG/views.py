@@ -2,6 +2,7 @@ from django.shortcuts import render
 import random
 from PUPG.models import Person, Pet
 from django.views import generic
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def index(request):
@@ -26,6 +27,7 @@ def index(request):
 
     return render(request, "index.html", context=context)
 
+@login_required
 def vote(request):
     num_pets = Pet.objects.all().count()
     num_people = Person.objects.all().count()
@@ -78,7 +80,7 @@ def leaderboard(request):
     return render(request, "leaderBoardDraft1.html", context=context)
 
 
-
+@login_required
 def submit(request):
     num_pets = Pet.objects.all().count()
     context = {
