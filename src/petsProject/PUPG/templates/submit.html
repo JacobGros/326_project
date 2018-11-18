@@ -2,28 +2,35 @@
 
 {% block content %}
 <h1>Submit your pets!</h1> 
-      <h2>Do you think your pet has what it takes to compete and win in a cuteness based competition? If so, submit pictures of your pet and share the cuteness with others.</h2>
-      <img class="img-responsive img-rounded" src="https://millbafs.com/wp-content/uploads/2014/01/group-of-pets-together-15229056.jpg" height=100px>
+      <h2>Do you think that your pet has what it takes to compete and win in a cuteness-based competition? If you do, then submit pictures of your pets and share the cuteness with others.</h2>
+      <img class="img-responsive img-rounded" src="http://pluspng.com/img-png/png-domestic-animals-bigstock-group-of-pets-standing-in-fron-7843960-400.png" height=242px>
       <div class="row">
             <div class="col-sm-2">
                 <label>
-                    <input type="checkbox" name="Dog" unchecked>Dog</label>
-            </div>
-            <div class="col-sm-2">
-                <label>
-                    <input type="checkbox" name="Cat" unchecked>Cat</label>
-            </div>
-            <div class="col-sm-2">
-                <label>
-                    <input type="checkbox" name="Bird" unchecked>Bird</label>
-            </div>
-            <div class="col-sm-2">
-                <label>
-                    <input type="checkbox" name="Mouse" unchecked>Mouse</label>
+			<select>
+				<option value="Dog">Dog</option>
+				<option value="Cat">Cat</option>
+				<option value="Bird">Bird</option>
+				<option value="Mouse">Mouse</option>
+				<option value="Hampster">Hampster</option>
+				<option value="Lizard">Lizard</option>
+				<option value="Snake">Snake</option>
+				<option value="Fish">Fish</option>
+				<option value="Snail">Snail</option>
+				<option value="Horse">Horse</option>
+				<option value="Rock">Rock</option>
+				<option value="Chinchilla">Chinchilla</option>
+				<option value="Chicken">Chicken</option>
+				<option value="Bird">Bird</option>
+				<option value="Frog">Frog</option>
+			</select>
             </div>
         </div>
       <label class="btn btn-default">
-    Browse <input type="file" hidden>
+	<form action="myform.cgi">
+<br>
+<input type="file" name="fileupload" value="fileupload" id="fileupload">
 </label>
+<br><br>
       <button type="button">Submit!</button>
 {% endblock %}
