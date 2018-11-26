@@ -3,6 +3,8 @@ import random
 from PUPG.models import Person, Pet
 from django.views import generic
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
+
 # Create your views here.
 
 def index(request):
@@ -56,6 +58,13 @@ def vote(request):
                 }
 
     return render(request, "versus.html", context=context)
+
+def vote_for_pet(request, pid):
+    pet = Pet.objects.get(pid=pid)
+    pet.vote_count += 1
+    pet.save()
+    return HttpResponseRedirect('/PUPG/vote/')
+
 
 def leaderboard(request):
     num_pets = Pet.objects.all().count()
