@@ -16,7 +16,7 @@ species = ["Dog", "Cat", "Mouse", "Hampster", "Lizard", "Snake", "Fish", "Snail"
 
 users = []
 for x in range(150):
-    user = Person(name = fake.first_name() + " " + fake.last_name(), User_id = x,  username = fake.text(25).replace(" ", ""),  password = fake.text(25).replace(" ", ""),  age = 36, country = "USA" )
+    user = Person(name = fake.first_name() + " " + fake.last_name(), username = fake.text(25).replace(" ", ""),  password = fake.text(25).replace(" ", ""), country = "USA" )
     users.append(user)
     user.save()
 

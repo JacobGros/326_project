@@ -25,10 +25,10 @@ class Pet(models.Model):
 
 class Person(models.Model):
     name = models.CharField(max_length=20, help_text='Enter Name')
-    User_id = models.IntegerField()
+  #  User_id = models.IntegerField()
     username = models.CharField(max_length=20, help_text='Enter Username')
     password = models.CharField(max_length=20, help_text='Enter Password')
-    age = models.IntegerField()
+  #  age = models.IntegerField()
     country = models.CharField(max_length=20, help_text='Enter Country')
 
 
