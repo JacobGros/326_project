@@ -47,6 +47,36 @@ for x in range(200):
     s = random.randint(0,8)
     u = random.randint(0,149)
     pic = random.randint(1,15)
+    
+    dogs = [1,10,11,12,2,4,]
+    cats = [13,14,5,]
+    birds = [15,]
+    sm_mam = [3,6,]
+    bugs = [7,]
+    reptile = [8,]
+    rock = [9,]
+    fish = []
+    horse = []
+
+    if pic in dogs:
+        s = 0
+    if pic in cats:
+        s = 1
+    if pic in birds:
+        s = 4
+    if pic in sm_mam:
+        s = 6
+    if pic in bugs:
+        s = 8
+    if pic in reptile:
+        s = 2
+    if pic in rock:
+        s = 7
+    if pic in fish:
+        s = 3
+    if pic in horse:
+        s = 5
+
 
     img  = Image.open("media/" + str(pic) + ".jpg")
     thumb_io = BytesIO()
