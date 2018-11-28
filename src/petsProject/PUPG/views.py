@@ -70,8 +70,8 @@ def vote(request):
 
     return render(request, "versus.html", context=context)
 
-def vote_for_pet(request, pid):
-    pet = Pet.objects.get(pid=pid)
+def vote_for_pet(request, id):
+    pet = Pet.objects.get(id=id)
     pet.vote_count += 1
     pet.save()
     return HttpResponseRedirect('/PUPG/vote/')
@@ -89,7 +89,6 @@ def leaderboard(request):
     
     for pet in Pet.objects.all().order_by('-vote_count'):
         ordered_pets.append(pet)
- 
     context["ordered_pets"] = ordered_pets 
 
 

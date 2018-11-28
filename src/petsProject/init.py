@@ -82,7 +82,7 @@ for x in range(200):
     thumb_io = BytesIO()
     img.save(thumb_io, img.format, quality=90)
 
-    pet = Pet(name = fake.first_name(), animal_type = species[s], pid = x, vote_count = random.randint(0,1000), pet_owner = users[u].person,
+    pet = Pet(name = fake.first_name(), animal_type = species[s], vote_count = random.randint(0,1000), pet_owner = users[u].person,
             age = random.randint(1,15))
 
     pet.picture.save(img.filename, ContentFile(thumb_io.getvalue()), save=True)
@@ -93,23 +93,6 @@ for x in range(200):
     pet.save()
 
     print("Pet " + pet.name + " who is a " + pet.animal_type + " has been assigned to " + users[u].person.name + "!")
-
-
-#pic = random.randint(1,15)
-
-#img  = Image.open("media/" + str(pic) + ".jpg")
-#thumb_io = BytesIO()
-#img.save(thumb_io, img.format, quality=90)
-
-##pet = Pet(name = fake.first_name(), animal_type = "dog", pid = 1, vote_count = random.randint(0,1000), pet_owner = users[0].person,
-  #      age = random.randint(1,15))
-
-#pet.picture.save(img.filename, ContentFile(thumb_io.getvalue()), save=True)
-
-
-
-#pet.save()
-
 
 
 

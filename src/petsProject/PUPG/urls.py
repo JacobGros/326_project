@@ -9,7 +9,7 @@ urlpatterns = [
     path("vote/", views.vote, name="vote"),
     path('person/<int:pk>', views.PersonDetailView.as_view(), name='person-detail'),
     path('pet/<int:pk>', views.PetDetailView.as_view(), name='pet-detail'),
-    path('vote/vote/<int:pid>/', views.vote_for_pet, name='vote_for_pet'),
+    path('vote/vote/<int:id>/', views.vote_for_pet, name='vote_for_pet'),
 
     
     ]
