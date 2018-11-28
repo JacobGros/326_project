@@ -1,9 +1,13 @@
-from django.shortcuts import render
 import random
 from PUPG.models import Person, Pet
 from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+from PUPG.forms import SignUpForm
+
 
 # Create your views here.
 
@@ -24,7 +28,7 @@ def index(request):
             "num_pets": num_pets,
             "num_people": num_people,
             "winner": ordered_pets[0],
-            "random pet": ordered_pets[random.randint(0,200)]
+            "random pet": ordered_pets[random.randint(0,(num_pets-1))]
             }
 
     return render(request, "index.html", context=context)
@@ -104,3 +108,20 @@ class PersonDetailView(generic.DetailView):
 class PetDetailView(generic.DetailView):
     model = Pet
     template_name = "pet_detail.html"
+
+def registration(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+             user = form.save()
+             user.refresh_from_db()
+             user.person.name = form.cleaned_data.get('first_name') + ' ' + form.cleaned_data.get('last_name')
+             user.save()
+             raw_password = form.cleaned_data.get('password1')
+             user = authenticate(username=user.username, password=raw_password)
+             login(request, user)
+             return redirect('index')
+    else:
+        form = SignUpForm()
+    return render(request, 'registration/registration.html', {'form': form})
+
