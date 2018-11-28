@@ -20,7 +20,7 @@ from django.views.generic import RedirectView
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.urls import path
- 
+from PUPG import views as PUPG_views 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -42,6 +42,8 @@ urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
  #       }),
    
 urlpatterns += [path("accounts/", include("django.contrib.auth.urls"))]
+
+urlpatterns += [url(r'^registration/$', PUPG_views.registration, name='registration')]
 
 if settings.DEBUG:
     urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
