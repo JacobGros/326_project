@@ -89,10 +89,6 @@ def leaderboard(request):
     
     for pet in Pet.objects.all().order_by('-vote_count'):
         ordered_pets.append(pet)
-
-    #for x in range(len(ordered_pets)):
-       # context = context+  {str(x+1) + "_place": ordered_pets[x] }
-     #   context[str(x+1) + "_place"] = ordered_pets[x]
  
     context["ordered_pets"] = ordered_pets 
 
@@ -111,6 +107,20 @@ def submit(request):
 class PersonDetailView(generic.DetailView):
     model = Person
     template_name = "person_detail.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        pets = [] 
+        profile_votes = 0
+        for pet in Pet.objects.all().filter(pet_owner = context['object']):
+            pets.append(pet)
+            profile_votes = profile_votes + pet.vote_count
+
+        context['pets'] = pets
+        context['votes'] = profile_votes
+        return context 
+
+
 
 class PetDetailView(generic.DetailView):
     model = Pet
