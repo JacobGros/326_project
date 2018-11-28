@@ -10,7 +10,6 @@ from PUPG.forms import SignUpForm
 
 
 # Create your views here.
-
 def index(request):
 
     num_pets = Pet.objects.all().count()
@@ -35,6 +34,9 @@ def index(request):
 
 @login_required
 def vote(request):
+
+    user = request.user
+
     num_pets = Pet.objects.all().count()
     num_people = Person.objects.all().count()
     
@@ -42,13 +44,18 @@ def vote(request):
     
     
     contender1 =  Pet.objects.all()[x]
+
+    while(contender1.pet_owner == user.person):
+        x = random.randint(0, Pet.objects.all().count()-1)
+        contender1 =  Pet.objects.all()[x]
+
     
     x = random.randint(0, Pet.objects.all().count()-1)
 
     contender2 =  Pet.objects.all()[x]
 
 
-    while (contender1 == contender2):
+    while (contender1 == contender2 or contender2.pet_owner == user.person):
         
         x = random.randint(0, Pet.objects.all().count()-1)
         contender2 =  Pet.objects.all()[x]
