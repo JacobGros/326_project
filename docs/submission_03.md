@@ -4,7 +4,10 @@ and the ability to create new users. Also changes to the template pages to fully
 -buttons, new images with alt-text, formatting, reset button to reset the form, and more.
 
 Team Members: Joseph Capozzi, Brandon Loo, Jacob Grosner, Patrick Robb
+
 Video Link:
+
 Design Overview: 
+
 Problems/Successes: There were some problems getting user-submitted pets to save to the database through the form submission. Images of 
 pets are now associated with the appropriate species.
