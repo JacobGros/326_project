@@ -7,7 +7,9 @@ from PUPG.models import Pet, Person
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.core.files.base import ContentFile
 from PIL import Image
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group, Permission 
+from django.contrib.contenttypes.models import ContentType
+
 
 
 fake = Faker()
@@ -15,6 +17,35 @@ fake = Faker()
 species = ["Dog", "Cat", "Reptile", "Fish", "Bird", "Horse", "Small Mammal", "Rock",
         "Bug"]
 
+
+moderatorGroup = Group()
+moderatorGroup.name = 'moderators'
+moderatorGroup.save()
+
+ct = ContentType.objects.get_for_model(User)
+
+
+permission1 = Permission.objects.create(codename='can_add_Pet',
+                                   name='Can add pet', content_type=ct)
+
+
+permission2 = Permission.objects.create(codename='can_delete_Pet',
+                                   name='Can delete pet', content_type=ct)
+
+permission3 = Permission.objects.create(codename='can_change_Pet',
+                                   name='Can change pet', content_type=ct)
+
+permission4 = Permission.objects.create(codename='can_add_User',
+                                   name='Can add user', content_type=ct)
+
+permission5 = Permission.objects.create(codename='can_delete_User',
+                                   name='Can delete user', content_type=ct)
+
+moderatorGroup.permissions.add(permission1)
+moderatorGroup.permissions.add(permission2)
+moderatorGroup.permissions.add(permission3)
+moderatorGroup.permissions.add(permission4)
+moderatorGroup.permissions.add(permission5)
 
 users = []
 
@@ -104,6 +135,10 @@ adminuser.save()
 adminuser.is_superuser = True
 adminuser.is_staff = True
 adminuser.save()
+
+moderatorGroup.user_set.add(adminuser)
+
+
 message = f"""
 ====================================================================
 The database has been setup with the following credentials:
