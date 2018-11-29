@@ -5,7 +5,7 @@ and the ability to create new users. Also changes to the template pages to fully
 
 Team Members: Joseph Capozzi, Brandon Loo, Jacob Grosner, Patrick Robb
 
-Video Link:
+Video Link: https://www.youtube.com/watch?v=A2Gvrn5gvgI&feature=youtu.be
 
 Design Overview: Users can access the home screen and leaderboard screen without logging in. Once logged in, they can vote for pets, view their profile (and their pets), and submit pets. An important view change is on the voting screen, a user cannot see their own pet, and clicking on 'my profile' will return a a detailed view on the user that clicks it. Their is also lots of form interaction/adusting database models within the project. Simplest one, users can vote for pets, incrementing that pet model's vote count. More impressively, users who don't have an account can register for one, adding a user and person (person extends user)to the database. Another critical feature is that users, once logged in, can upload their pets, adding a brand new pet model to the database, allowing other users to vote for it. 
 
@@ -25,3 +25,4 @@ Users and person class are now linked, fufilling all our hopes and dreams.
 Coding work was more evenly distrubuted out amongst members this time, a definite improvement from project 02. 
 
 Team Choice: Our team choice is all about images. We had to research outside of class to figure out how we could allow users to upload images, have the images be saved to the database, and then be displayed to other users. We also had to taylor init.py to assign images to our models. 
+
