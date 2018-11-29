@@ -5,5 +5,6 @@
 	person(like profile) to store additional information. I created a one to one relationship between these entities in our models. 
 	When a user is created a person is also created and data within person is updated based on user. I also added Person update
 	functionality so that users can update their name and country information after they register for the website.
-		Lastly, I updated our url mapping for our login and registration functionality. All of the user registration and 	    authentication process is made available to the user through the navigation bar. I also met with the team regularly for general work and 
-	organization. 
+		Lastly, I updated our url mapping for our login and registration functionality. All of the user registration 
+	and authentication process is made available to the user through the navigation bar. I also met with the team 
+	regularly for general work and organization. 
