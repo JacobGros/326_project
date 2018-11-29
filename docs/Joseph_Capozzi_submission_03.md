@@ -8,5 +8,4 @@ species from a list of selected species based on the appropriate ones, and more,
 first logging in and selecting all consituiant data points otherwise it won't work and it will stop them and make them do it again so 
 they can't submi until they have filled out all of the parts of the form with valid data.
 
-Lastly, I provided some contribution to starting the group submission file and working with other features of the website. You can check
-the github commits and user rankings under contributors to learn more about my some of submissions and efforts.
+Lastly, I provided some contribution to starting the group submission file and working with other features of the website and more. You can check the github commits and user rankings under contributors to learn more about my some of submissions and efforts.
