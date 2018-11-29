@@ -12,4 +12,5 @@ Design Overview:
 Problems/Successes: There were some problems getting user-submitted pets to save to the database through the form submission. Images of 
 pets are now associated with the appropriate species.
 
-Team Choice:
+Team Choice: Our team choice is pictures. We had to research outside of class to figure out how we could allow users to
+upload pictures, have the pictures be saved to the database, and then be displayed to other users. 
