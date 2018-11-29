@@ -7,48 +7,15 @@
       <div class="row">
             <div class="col-sm-2">
                 <label>
-		<form>
-			Pet Name:   &nbsp; <input type="text" size="20" name="name"/><br>
-			Pet Age:     &nbsp; &nbsp; &nbsp; <select> 
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-					<option value="10">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
-					<option value="13">13</option>
-					<option value="14">14</option>
-					<option value="15">15</option>
-				</select><br>
-			Pet Species: <select>
-				<option value="Dog">Dog</option>
-				<option value="Cat">Cat</option>
-				<option value="Bird">Bird</option>
-				<option value="Mouse">Mouse</option>
-				<option value="Hampster">Hampster</option>
-				<option value="Lizard">Lizard</option>
-				<option value="Snake">Snake</option>
-				<option value="Fish">Fish</option>
-				<option value="Snail">Snail</option>
-				<option value="Horse">Horse</option>
-				<option value="Rock">Rock</option>
-				<option value="Chinchilla">Chinchilla</option>
-				<option value="Chicken">Chicken</option>
-				<option value="Bird">Bird</option>
-				<option value="Frog">Frog</option>
-			</select>
+		<form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+			Pet Name:   &nbsp; {{ form.name }}<br>
+			Pet Age:     &nbsp; &nbsp; &nbsp; {{ form.age }}<br>
+			Pet Species: {{ form.animal_type }}<br>
+			Add Picture: {{ form.picture }}<br>
             </div>
         </div>
       <label class="btn btn-default">
-Pet Picture: <input type="file" name="fileupload" value="fileupload" id="fileupload" accept="image/*">
-</label>
-<br><br>
-      <button type="button">Submit your pet!</button> <button type="reset">Reset form to default</button>
+<br>
+      <input type="submit" value="Submit your pet!"/>
 </form>
 {% endblock %}

@@ -7,7 +7,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from PUPG.forms import SignUpForm
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 def index(request):
@@ -95,13 +95,17 @@ def leaderboard(request):
     return render(request, "leaderBoardDraft1.html", context=context)
 
 
-@login_required
-def submit(request):
-    num_pets = Pet.objects.all().count()
-    context = {
-            "num_pets": num_pets,
-            }
-    return render(request, "submit.html", context=context)
+class PetCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Pet
+    template_name = "submit.html"
+    fields = ['name', 'age', 'animal_type', 'picture']
+    #fields = '__all__'
+    
+    
+    def form_valid(self, form):
+        form.instance.pet_owner = self.request.user.person
+        form.instance.vote_count = '0'
+        return super(PetCreateView, self).form_valid(form)
 
 class PersonDetailView(generic.DetailView):
     model = Person

@@ -6,14 +6,18 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 # Create your models here.
+SPECIES = (
+	('dog', 'Dog'), ('cat', 'Cat'), ('reptile', 'Reptile'), ('fish', 'Fish'), ('bird', 'Bird'), ('horse', 'Horse'), ('small_mammal', 'Small Mammal'), ('rock', 'Rock'), ('bug', 'Bug')
+)
+
 class Pet(models.Model):
 
     name = models.CharField(max_length=20, help_text='Enter Name')
-    animal_type = models.CharField(max_length=20, help_text='Enter Animal Type')
+    animal_type = models.CharField(max_length=20, help_text='Enter Animal Type', choices=SPECIES)
     vote_count = models.IntegerField()
     pet_owner = models.ForeignKey('Person', on_delete=models.SET_NULL, null = True)
     age = models.IntegerField()
-    picture = models.ImageField(max_length = 255) 
+    picture = models.ImageField('profile picture', upload_to = 'media/', max_length = 255, null = True) 
     
     def get_absolute_url(self):
         return reverse("pet-detail", args=[str(self.id)])
