@@ -31,6 +31,11 @@ def index(request):
             "random pet": ordered_pets[random.randint(0,(num_pets-1))]
             }
 
+    if request.user.is_authenticated:
+        user = request.user
+        person = user.person
+        context["person"] = person
+
     return render(request, "index.html", context=context)
 
 @login_required
@@ -69,6 +74,11 @@ def vote(request):
                 "c2": contender2,
                 }
 
+    if request.user.is_authenticated:
+        user = request.user
+        person = user.person
+        context["person"] = person
+
     return render(request, "versus.html", context=context)
 
 def vote_for_pet(request, id):
@@ -92,6 +102,10 @@ def leaderboard(request):
         ordered_pets.append(pet)
     context["ordered_pets"] = ordered_pets 
 
+    if request.user.is_authenticated:
+        user = request.user
+        person = user.person
+        context["person"] = person
 
     return render(request, "leaderBoardDraft1.html", context=context)
 
@@ -102,6 +116,10 @@ class PetCreateView(LoginRequiredMixin, generic.CreateView):
     fields = ['name', 'age', 'animal_type', 'picture']
     #fields = '__all__'
     
+    if request.user.is_authenticated:
+        user = request.user
+        person = user.person
+        context["person"] = person
     
     def form_valid(self, form):
         form.instance.pet_owner = self.request.user.person
