@@ -170,5 +170,3 @@ def registration(request):
         form = SignUpForm()
     return render(request, 'registration/registration.html', {'form': form})
 
-def logout_view(request):
-    logout(request)
