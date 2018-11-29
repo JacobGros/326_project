@@ -12,15 +12,15 @@ Design Overview: Users can access the home screen and leaderboard screen without
 Problems/Successes: 
 Problems:
 There were some problems getting user-submitted pets to save to the database through the form submission.
-Some members had computer problems
-I (Jacob) didn't do anything over break, resulting in some quick code crunching on Sunday and Monday
-Content in general required outside sources to consult to fully grasp
+Some members had computer problems.
+I (Jacob) didn't do anything over break, resulting in some quick code crunching on Sunday and Monday.
+Content in general required outside sources to consult to fully grasp.
 
 Successes:
-App functionaliy is pretty much done(Every goal has been met, adding extra stuff (nice css, extra stats) is the new goal)
-Our team choice is also already done(we've been working with images since October)
+App functionaliy is pretty much done(Every goal has been met, adding extra stuff (nice css, extra stats) is the new goal).
+Our team choice is also already done(we've been working with images since October).
 Images of pets are now associated with the appropriate species.
-Users and person class are now linked, fufilling all our hopes and dreams
+Users and person class are now linked, fufilling all our hopes and dreams.
 Coding work was more evenly distrubuted out amongst members this time, a definite improvement from project 02. 
 
 Team Choice: Our team choice is all about images. We had to research outside of class to figure out how we could allow users to upload images, have the images be saved to the database, and then be displayed to other users. We also had to taylor init.py to assign images to our models. 
