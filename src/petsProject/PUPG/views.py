@@ -8,6 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from PUPG.forms import SignUpForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import logout
 
 # Create your views here.
 def index(request):
@@ -145,3 +146,5 @@ def registration(request):
         form = SignUpForm()
     return render(request, 'registration/registration.html', {'form': form})
 
+def logout_view(request):
+    logout(request)
