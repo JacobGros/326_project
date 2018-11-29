@@ -45,5 +45,7 @@ urlpatterns += [path("accounts/", include("django.contrib.auth.urls"))]
 
 urlpatterns += [url(r'^registration/$', PUPG_views.registration, name='registration')]
 
+urlpatterns += [url(r'^updateprofile/$', PUPG_views.update_profile, name='updateprofile')]
+
 if settings.DEBUG:
     urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

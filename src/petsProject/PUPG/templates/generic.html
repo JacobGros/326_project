@@ -25,6 +25,7 @@
       <li><a href="{% url 'login' %}">Login</a></li>
       <li><a href="{% url 'logout' %}">Logout</a></li>
       <li><a href="{{ person.get_absolute_url }}">My Profile</a></li>
+      <li><a href="{% url 'updateprofile' %}">Update Profile</a></li>	
     </ul>
     {% endblock %}
   </div>

@@ -6,9 +6,10 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-from PUPG.forms import SignUpForm
+from PUPG.forms import SignUpForm, UserForm, PersonForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import logout
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -170,4 +171,25 @@ def registration(request):
     else:
         form = SignUpForm()
     return render(request, 'registration/registration.html', {'form': form})
+
+@login_required
+def update_profile(request):
+    if request.method == 'POST':
+        #user_form = UserForm(request.POST, instance=request.user)
+        person_form = PersonForm(request.POST, instance=request.user.person)
+        if person_form.is_valid():# and user_form.is_valid():
+            #user_form.save()
+            person_form.save()
+    else:
+        #user_form = UserForm(instance=request.user)
+        person_form = PersonForm(instance=request.user.person)
+    
+    if request.user.is_authenticated:
+        user = request.user
+        person = user.person
+
+
+    context = {'person_form':person_form,'person':person,}
+    #context = {'user_form':user_form,}# 'person':person,}
+    return render(request, 'registration/profile.html', context=context)
 
