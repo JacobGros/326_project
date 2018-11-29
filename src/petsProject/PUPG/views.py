@@ -161,6 +161,7 @@ def registration(request):
              user = form.save()
              user.refresh_from_db()
              user.person.name = form.cleaned_data.get('first_name') + ' ' + form.cleaned_data.get('last_name')
+             user.person.country = form.cleaned_data.get('country')
              user.save()
              raw_password = form.cleaned_data.get('password1')
              user = authenticate(username=user.username, password=raw_password)
