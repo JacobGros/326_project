@@ -7,7 +7,7 @@
 <p><strong>Vote Count:</strong> {{ pet.vote_count }}</p>
 <p><strong>Age:</strong> {{ pet.age }}</p>
 <p><strong>Species:</strong> {{ pet.animal_type }}</p>
-
+<p><strong>Owner:</strong> <a href="{{ pet.pet_owner.get_absolute_url }}">{{ pet.pet_owner.name }}</a></p>
 
 
 {% endblock %}
