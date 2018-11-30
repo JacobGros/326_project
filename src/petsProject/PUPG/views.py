@@ -10,6 +10,9 @@ from PUPG.forms import SignUpForm, UserForm, PersonForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import logout
 from django.contrib import messages
+from difflib import SequenceMatcher
+
+
 
 # Create your views here.
 def index(request):
@@ -192,4 +195,48 @@ def update_profile(request):
     context = {'person_form':person_form,'person':person,}
     #context = {'user_form':user_form,}# 'person':person,}
     return render(request, 'registration/profile.html', context=context)
+
+
+
+
+
+def search_view(request):
+  
+    if request.method == 'GET': # If the form is submitted
+        search_query = request.GET.get('search_box', None)
+
+        context = { 'search' : search_query}
+
+
+        pets = Pet.objects.all()
+        pet_tuples = []
+        ordered_pets = []
+
+        def nameMatch(search, p):
+            return SequenceMatcher(None, search, p.name).ratio()
+
+        for pet in pets:
+
+            pet_tuples.append((pet, nameMatch(search_query, pet)))
+
+        def takeSecond(elem):
+            return elem[1]
+
+        pet_tuples.sort(reverse = True, key=takeSecond)
+
+        for p in pet_tuples:
+            ordered_pets.append(p[0])
+
+
+        context['ordered_pets'] = ordered_pets
+
+
+        return render(request, "search.html", context=context)
+
+
+    return render(request, "index.html", context=context)
+
+
+
+
 

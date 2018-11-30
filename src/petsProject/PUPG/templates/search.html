@@ -1,0 +1,67 @@
+
+{% extends "generic.html" %}
+
+{% block content %}
+
+
+
+<style>
+table {
+    font-family: arial;
+    color: white;
+    border-collapse: collapse;
+    width: 100%;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    #background-color: #dddddd;
+
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+
+</head>
+<body>
+
+<h1 align=center> Results for:  {{ search  }}</h1>
+
+<table>
+  <tr>
+    <th>PET</th>
+    <th>OWNER</th>
+    <th># OF VOTES</th>
+  </tr>
+
+
+
+
+  {% for pet in ordered_pets %}
+
+<tr>
+    
+        <td>
+        <img src="{{pet.picture.url}}" style="width:100px;height:100px;">
+        <a href="{{ pet.get_absolute_url }}">{{ pet.name }}</a></td>
+        <td><a href="{{ pet.pet_owner.get_absolute_url }}">{{ pet.pet_owner.name }}</a></td>
+        <td>{{pet.vote_count}}</td>
+
+</tr>
+
+
+
+{% endfor %}
+
+
+</table>
+
+
+
+
+{% endblock %}
