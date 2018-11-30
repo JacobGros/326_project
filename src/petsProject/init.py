@@ -73,22 +73,39 @@ for x in range(150):
     print(" ")
 
 
+dogs = [1,10,11,12,2,4,]
+cats = [13,14,5,]
+birds = [15,]
+sm_mam = [3,6,]
+bugs = [7,]
+reptile = [8,]
+rock = [9,]
+fish = []
+horse = []
+
+def add_specific_pet(name, species, age, pic, Image, BytesIO, Pet, random, ContentFile, users):
+    u = random.randint(0,149)
+    img  = Image.open("media/" + str(pic) + ".jpg")
+    thumb_io = BytesIO()
+    img.save(thumb_io, img.format, quality=90)
+
+    pet = Pet(name = name, animal_type = species, vote_count = random.randint(0,1000), pet_owner = users[u].person,
+            age = age)
+
+    pet.picture.save(img.filename, ContentFile(thumb_io.getvalue()), save=True)
+
+
+    pet.save()
+
+    print("Pet " + pet.name + " who is a " + pet.animal_type + " has been assigned to " + users[u].person.name + "!")
+
+
 for x in range(200):
 
     s = random.randint(0,8)
     u = random.randint(0,149)
     pic = random.randint(1,15)
     
-    dogs = [1,10,11,12,2,4,]
-    cats = [13,14,5,]
-    birds = [15,]
-    sm_mam = [3,6,]
-    bugs = [7,]
-    reptile = [8,]
-    rock = [9,]
-    fish = []
-    horse = []
-
     if pic in dogs:
         s = 0
     if pic in cats:
@@ -126,6 +143,9 @@ for x in range(200):
     print("Pet " + pet.name + " who is a " + pet.animal_type + " has been assigned to " + users[u].person.name + "!")
 
 
+add_specific_pet("Lola", "Cat", 9, "lola", Image, BytesIO, Pet, random, ContentFile, users)
+add_specific_pet("Cinnabon", "Small Mammal", 5, "cinnabon", Image, BytesIO, Pet, random, ContentFile, users)
+add_specific_pet("Nacho", "Dog", 4, "nacho", Image, BytesIO, Pet, random, ContentFile, users)
 
 username = "admin"
 password = "admin"
