@@ -132,6 +132,14 @@ password = "admin"
 email = "admin@326.edu"
 adminuser = User.objects.create_user(username, email, password)
 adminuser.save()
+fname = fake.first_name()
+lname = fake.last_name()
+
+adminuser.first_name = fname
+adminuser.last_name = lname
+adminuser.person.name = reguser.first_name + " " + reguser.last_name
+adminuser.person.country = "USA"
+
 adminuser.is_superuser = True
 adminuser.is_staff = True
 adminuser.save()
