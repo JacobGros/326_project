@@ -1,0 +1,69 @@
+{% extends "generic.html" %}
+
+{% block content %}
+
+<p><strong>Name:</strong> {{ person.name }}</p>
+<p><strong>Country:</strong> {{ person.country }}</p>
+<p><strong>Votes Recieved:</strong> {{ votes }}</p>
+<p><strong>Votes Given:</strong> {{ person.votes_given }}</p>
+<p><strong>Rank:</strong> {{ rank }}</p>
+
+
+
+<style>
+table {
+    font-family: arial;
+    color: white;
+    border-collapse: collapse;
+    width: 100%;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    #background-color: #dddddd;
+
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+ <h1 align="center">SUBMITED PETS: </h1>
+
+
+
+
+<table>
+  <tr>
+    <th>PET</th>
+    <th># OF VOTES</th>
+  </tr>
+
+  {% for pet in pets %}
+
+<tr>
+        
+	<td> <img src="{{pet.picture.url}}" style="width:100px;height:100px;">
+        <a href="{{ pet.get_absolute_url }}">{{ pet.name }}</a></td>
+        <td>{{pet.vote_count}}</td>
+
+</tr>
+
+
+
+{% endfor %}
+
+
+</table>
+
+<a href="{% url 'updateprofile' %}">Update Profile</a>
+
+
+
+{% endblock %}

@@ -285,6 +285,59 @@ def registration(request):
         form = SignUpForm()
     return render(request, 'registration/registration.html', {'form': form})
 
+@login_required	
+def my_profile(request):
+    user = request.user
+    person = user.person
+    context= {}
+    context['person'] = person
+    pets = [] 
+    profile_votes = 0
+    for pet in Pet.objects.all().filter(pet_owner = context['person']):
+        pets.append(pet)
+        profile_votes = profile_votes + pet.vote_count
+    context['pets'] = pets
+    context['votes'] = profile_votes
+    context['votes_given'] = context['person'].votes_given
+	
+    if(context['person'].votes_given >= 100000000000):
+        rank = "Crazy Cat Lady [max level]"
+    elif(context['person'].votes_given >= 10000000):
+        rank = "Divine Lover of Pets"
+    elif(context['person'].votes_given >= 3000000):
+        rank = "Pet Devoted Worshipper"
+    elif(context['person'].votes_given >= 1000000 ):
+        rank = "Pet Worshipper "
+    elif(context['person'].votes_given >= 500000  ):
+        rank = "Pet Devotee"
+    elif(context['person'].votes_given >= 100000  ):
+        rank = "Pet Enthusiast"
+    elif(context['person'].votes_given >= 50000  ):
+        rank = "Pet Believer"
+    elif(context['person'].votes_given >= 25000  ):
+        rank = " Pet Addict"
+    elif(context['person'].votes_given >= 15000  ):
+        rank = "Pet Maniac"
+    elif(context['person'].votes_given >= 10000  ):
+        rank = "Pet Fanatic"
+    elif(context['person'].votes_given >= 6000  ):
+        rank = "Pet Extremist"
+    elif(context['person'].votes_given >= 3000  ):
+        rank = "Pet Zealot"
+    elif(context['person'].votes_given >= 1750  ):
+        rank = "Pet Aficionado"
+    elif(context['person'].votes_given >= 1000):
+        rank = "Pet Lover"
+    elif(context['person'].votes_given >= 500):
+        rank = "Pet Adorer"
+    elif(context['person'].votes_given >= 100):
+        rank = "Pet Fan"
+    else:
+        rank = "Pet Amateur"
+
+    context['rank'] = rank
+    return render(request, "profile_detail.html", context=context)
+	
 @login_required
 def update_profile(request):
     if request.method == 'POST':

@@ -25,10 +25,12 @@
       <li><a href="{% url 'vote' %}">Vote</a></li>
       <li><a href="{% url 'submit' %}">Submit</a></li> 
       <li><a href="{% url 'leaderboard' %}">Leaderboard</a></li>
-      <li><a href="{% url 'login' %}">Login</a></li>
+      {% if request.user.is_authenticated %}
+	  <li><a href="{% url 'profile_detail' %}">My Profile</a></li>
       <li><a href="{% url 'logout' %}">Logout</a></li>
-      <li><a href="{{ person.get_absolute_url }}">My Profile</a></li>
-      <li><a href="{% url 'updateprofile' %}">Update Profile</a></li>	
+	  {% else %}
+	  <li><a href="{% url 'login' %}">Login</a></li>
+	  {% endif %}
       
        <li><form  type="get" action={% url 'search' %} style="margin: 1">
     <input  id="search_box" type="text" name="search_box"  placeholder="Search... " >
