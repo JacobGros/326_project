@@ -1,0 +1,68 @@
+
+{% extends "generic.html" %}
+
+{% block content %}
+
+
+
+<style>
+table {
+    font-family: arial;
+    color: white;
+    border-collapse: collapse;
+    width: 100%;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    #background-color: #dddddd;
+
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+
+</head>
+<body>
+
+<h1 align=center> Results for:  {{ search  }}</h1>
+
+<table>
+  <tr>
+    <th>OWNER</th>
+    <th>Country</th>
+    <th># Pets Submited</th>
+    <th># Total Votes</th>
+  </tr>
+
+
+
+
+  {% for user, num_pets, profile_votes in zipped %}
+
+<tr>
+
+        <td><a href="{{ user.person.get_absolute_url }}">{{ user.person.name }}</a></td>
+        <td>{{ user.person.country }}</td>
+	<td> {{  num_pets }} </td>
+	<td>{{ profile_votes  }} </td>
+
+</tr>
+
+
+{% endfor %}
+
+
+</table>
+
+
+
+
+{% endblock %}
+
+

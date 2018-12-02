@@ -11,7 +11,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import logout
 from django.contrib import messages
 from difflib import SequenceMatcher
-
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -205,33 +205,76 @@ def search_view(request):
     if request.method == 'GET': # If the form is submitted
         search_query = request.GET.get('search_box', None)
 
-        context = { 'search' : search_query}
+        models = request.GET.get('models', None)
 
 
-        pets = Pet.objects.all()
-        pet_tuples = []
-        ordered_pets = []
+        if(models == "Owners"): 
+            users = User.objects.all()
+            context = { 'search' : search_query} 
+            user_tuples = []
+            ordered_users = []
+            profile_votes = []
+            num_pets = []
+            
+            def nameMatch(search, u):
+                return SequenceMatcher(None, search, u.person.name).ratio()
 
-        def nameMatch(search, p):
-            return SequenceMatcher(None, search, p.name).ratio()
+            for user in users:
+                user_tuples.append((user, nameMatch(search_query, user)))
 
-        for pet in pets:
+            def takeSecond(elem):
+                return elem[1]
 
-            pet_tuples.append((pet, nameMatch(search_query, pet)))
+            user_tuples.sort(reverse = True, key=takeSecond)
 
-        def takeSecond(elem):
-            return elem[1]
+            for u  in user_tuples:
+                ordered_users.append(u[0])
+                
+                num_pets.append(len(Pet.objects.all().filter(pet_owner = u[0].person)))
+                votes = 0 
+                for pet in Pet.objects.all().filter(pet_owner = u[0].person):
+                    votes = votes + pet.vote_count
+                profile_votes.append(votes)
+                    
+            zipped = zip(ordered_users, num_pets, profile_votes)
+            
+            
+            context['zipped'] = zipped
 
-        pet_tuples.sort(reverse = True, key=takeSecond)
+            
+            return render(request, "search_users.html", context=context)
 
-        for p in pet_tuples:
-            ordered_pets.append(p[0])
+        else:
+
+            context = { 'search' : search_query}
 
 
-        context['ordered_pets'] = ordered_pets
+            pets = Pet.objects.all()
+            pet_tuples = []
+            ordered_pets = []
+
+            def nameMatch(search, p):
+                return SequenceMatcher(None, search, p.name).ratio()
+
+            for pet in pets:
+
+                pet_tuples.append((pet, nameMatch(search_query, pet)))
+
+            def takeSecond(elem):
+                return elem[1]
+
+            pet_tuples.sort(reverse = True, key=takeSecond)
+
+            for p in pet_tuples:
+                ordered_pets.append(p[0])
 
 
-        return render(request, "search.html", context=context)
+            context['ordered_pets'] = ordered_pets
+
+
+            
+            return render(request, "search.html", context=context)
+
 
 
     return render(request, "index.html", context=context)
