@@ -207,7 +207,7 @@ class PetCreateView(LoginRequiredMixin, generic.CreateView):
 class PersonDetailView(generic.DetailView):
     model = Person
     template_name = "person_detail.html"
-    
+    rank = "Pet Amatuer" 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         pets = [] 
@@ -219,7 +219,47 @@ class PersonDetailView(generic.DetailView):
         context['pets'] = pets
         context['votes'] = profile_votes
         context['votes_given'] = context['object'].votes_given
-        print( context['votes_given'])
+
+
+        if(context['object'].votes_given >= 100000000000):
+            rank = "Crazy Cat Lady [max level]"
+        elif(context['object'].votes_given >= 10000000):
+            rank = "Divine Lover of Pets"
+        elif(context['object'].votes_given >= 3000000):
+            rank = "Pet Devoted Worshipper"
+        elif(context['object'].votes_given >= 1000000 ):
+            rank = "Pet Worshipper "
+        elif(context['object'].votes_given >= 500000  ):
+            rank = "Pet Devotee"
+        elif(context['object'].votes_given >= 100000  ):
+            rank = "Pet Enthusiast"
+        elif(context['object'].votes_given >= 50000  ):
+            rank = "Pet Believer"
+        elif(context['object'].votes_given >= 25000  ):
+            rank = " Pet Addict"
+        elif(context['object'].votes_given >= 15000  ):
+            rank = "Pet Maniac"
+        elif(context['object'].votes_given >= 10000  ):
+            rank = "Pet Fanatic"
+        elif(context['object'].votes_given >= 6000  ):
+            rank = "Pet Extremist"
+        elif(context['object'].votes_given >= 3000  ):
+            rank = "Pet Zealot"
+        elif(context['object'].votes_given >= 1750  ):
+            rank = "Pet Aficionado"
+        elif(context['object'].votes_given >= 1000):
+            rank = "Pet Lover"
+        elif(context['object'].votes_given >= 500):
+            rank = "Pet Adorer"
+        elif(context['object'].votes_given >= 100):
+            rank = "Pet Fan"
+        else:
+            rank = "Pet Amateur"
+
+
+
+        context['rank'] = rank
+        print(context['votes_given'])
         return context 
 
 

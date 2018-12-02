@@ -34,8 +34,8 @@ class Person(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
     country = models.CharField(max_length=20, help_text='Enter Country')
     votes_given = models.IntegerField(default=0)
+    rank = models.CharField(max_length=50, default="Pet Amateur") 
     
-
 
     @receiver(post_save, sender=User)
     def update_user_profile(sender, instance, created, **kwargs):
@@ -45,7 +45,46 @@ class Person(models.Model):
 
     def __str__(self):
         return "Name: " + self.name + " Username: " + self.user.username + " Password: " + self.user.password
-     
+
+    def assign_rank(self):
+        if(self.votes_given >= 100000000000):
+            self.rank = "Crazy Cat Lady [max level]"
+        elif(self.votes_given >= 10000000):
+            self.rank = "Divine Lover of Pets"
+        elif(self.votes_given >= 3000000):
+            self.rank = "Pet Devoted Worshipper"
+        elif(self.votes_given >= 1000000 ):
+            self.rank = "Pet Worshipper "
+        elif(self.votes_given >= 500000  ):
+            self.rank = "Pet Devotee"
+        elif(self.votes_given >= 100000  ):
+            self.rank = "Pet Enthusiast"
+        elif(self.votes_given >= 50000  ):
+            self.rank = "Pet Believer"
+        elif(self.votes_given >= 25000  ):
+            self.rank = " Pet Addict"
+        elif(self.votes_given >= 15000  ):
+            self.rank = "Pet Maniac"
+        elif(self.votes_given >= 10000  ):
+            self.rank = "Pet Fanatic"
+        elif(self.votes_given >= 6000  ):
+            self.rank = "Pet Extremist"
+        elif(self.votes_given >= 3000  ):
+            self.rank = "Pet Zealot"
+        elif(self.votes_given >= 1750  ):
+            self.rank = "Pet Aficionado"
+        elif(self.votes_given >= 1000):
+            self.rank = "Pet Lover"
+        elif(self.votes_given >= 500):
+            self.rank = "Pet Adorer"
+        elif(self.votes_given >= 100):
+            self.rank = "Pet Fan"
+        else:
+            self.rank = "Pet Amateur"
+
+
+
+
     def get_absolute_url(self):
          return reverse("person-detail", args=[str(self.id)])
 
