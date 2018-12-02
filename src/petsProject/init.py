@@ -80,7 +80,7 @@ sm_mam = [3,6,]
 bugs = [7,]
 reptile = [8,]
 rock = [9,]
-fish = []
+fish = [17,]
 horse = [16,]
 
 def add_specific_pet(name, species, age, pic, Image, BytesIO, Pet, random, ContentFile, users):
@@ -104,7 +104,7 @@ for x in range(200):
 
     s = random.randint(0,8)
     u = random.randint(0,149)
-    pic = random.randint(1,16)
+    pic = random.randint(1,17)
     
     if pic in dogs:
         s = 0
