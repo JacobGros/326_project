@@ -65,11 +65,13 @@ for x in range(150):
     reguser.last_name = lname
     reguser.person.name = reguser.first_name + " " + reguser.last_name
     reguser.person.country = "USA"
+    reguser.person.votes_given = random.randint(0,10000000)
     reguser.save() 
     users.append(reguser)
     print("Username: " + usern)
     print("Password: " + pw)
     print("Person's Name: " + reguser.person.name)
+    print("votes given: " + str(reguser.person.votes_given))
     print(" ")
 
 
@@ -159,6 +161,8 @@ adminuser.first_name = fname
 adminuser.last_name = lname
 adminuser.person.name = reguser.first_name + " " + reguser.last_name
 adminuser.person.country = "USA"
+adminuser.person.votes_given = 0 
+
 
 adminuser.is_superuser = True
 adminuser.is_staff = True
