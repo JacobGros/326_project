@@ -33,7 +33,10 @@ class Person(models.Model):
     name = models.CharField(max_length=20, help_text='Enter Name')
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
     country = models.CharField(max_length=20, help_text='Enter Country')
-   
+    votes_given = models.IntegerField(default=0)
+    
+
+
     @receiver(post_save, sender=User)
     def update_user_profile(sender, instance, created, **kwargs):
         if created:
