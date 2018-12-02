@@ -100,6 +100,7 @@ def vote_for_pet(request, id):
 
 
 def leaderboard(request):
+
     num_pets = Pet.objects.all().count()
 
     ordered_pets = []
@@ -107,9 +108,72 @@ def leaderboard(request):
     context = {
                 "num_pets": num_pets,
                 }
-
     
-    for pet in Pet.objects.all().order_by('-vote_count'):
+    showAll = request.GET.get('showAll', None)
+    showDogs = request.GET.get('showDogs', None)
+    showReptiles = request.GET.get('showReptiles', None)
+    showFish = request.GET.get('showFish', None)
+    showBirds = request.GET.get('showBirds', None)
+    showHorse = request.GET.get('showHorse', None)
+    showSM = request.GET.get('showSM', None)
+    showRocks = request.GET.get('showRocks', None)
+    showBugs = request.GET.get('showBugs', None)
+    showCats = request.GET.get('showCats', None)
+    
+    pets = False 
+
+    if((not showAll and not showDogs and not showCats and not showReptiles and not showFish and not showBirds and not showHorse and not  showSM and not showRocks and not showBugs) or showAll):
+        pets = Pet.objects.all().order_by('-vote_count')
+
+    else:
+        if(showDogs):
+            pets = Pet.objects.all().filter(animal_type = "Dog")
+        if(showCats):
+            if(pets):
+                pets = pets.union(Pet.objects.all().filter(animal_type = "Cat"))
+            else:
+                pets = Pet.objects.all().filter(animal_type = "Cat")
+
+        if(showReptiles):
+            if(pets):
+                pets = pets.union(Pet.objects.all().filter(animal_type = "Reptile"))
+            else:
+                pets = Pet.objects.all().filter(animal_type = "Reptile")
+        if(showFish):
+            if(pets):
+                pets = pets.union(Pet.objects.all().filter(animal_type = "Fish"))
+            else:
+                pets = Pet.objects.all().filter(animal_type = "Fish")
+        if(showBirds):
+            if(pets):
+                pets = pets.union(Pet.objects.all().filter(animal_type = "Bird"))
+            else:
+                pets = Pet.objects.all().filter(animal_type = "Bird")
+        if(showHorse):
+            if(pets):
+                pets = pets.union(Pet.objects.all().filter(animal_type = "Horse"))
+            else:
+                pets = Pet.objects.all().filter(animal_type = "Horse")
+        if(showSM):
+            if(pets):
+                pets = pets.union(Pet.objects.all().filter(animal_type = "Small Mammal"))
+            else:
+                pets = Pet.objects.all().filter(animal_type = "Small Mammal")
+        if(showRocks):
+            if(pets):
+                pets = pets.union(Pet.objects.all().filter(animal_type = "Rock"))
+            else:
+                pets = Pet.objects.all().filter(animal_type = "Rock")
+        if(showBugs):
+            if(pets):
+                pets = pets.union(Pet.objects.all().filter(animal_type = "Bug"))
+            else:
+                pets = Pet.objects.all().filter(animal_type = "Bug")
+                
+    
+    pets = pets.order_by('-vote_count')
+    
+    for pet in pets:
         ordered_pets.append(pet)
     context["ordered_pets"] = ordered_pets 
 
