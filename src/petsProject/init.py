@@ -75,11 +75,11 @@ for x in range(150):
 
 dogs = [1,10,11,12,2,4,]
 cats = [13,14,5,]
-birds = [15,]
+birds = [15,21,]
 sm_mam = [3,6,]
-bugs = [7,]
-reptile = [8,]
-rock = [9,]
+bugs = [7,19,20,]
+reptile = [8,18,]
+rock = [9,22,23,24,]
 fish = [17,]
 horse = [16,]
 
@@ -104,7 +104,7 @@ for x in range(200):
 
     s = random.randint(0,8)
     u = random.randint(0,149)
-    pic = random.randint(1,17)
+    pic = random.randint(1,24)
     
     if pic in dogs:
         s = 0
