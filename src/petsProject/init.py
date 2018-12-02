@@ -102,11 +102,16 @@ def add_specific_pet(name, species, age, pic, Image, BytesIO, Pet, random, Conte
     print("Pet " + pet.name + " who is a " + pet.animal_type + " has been assigned to " + users[u].person.name + "!")
 
 
-for x in range(200):
+pics = list(range(1,200))
+
+
+for x in range(199):
+
 
     s = random.randint(0,8)
     u = random.randint(0,149)
-    pic = random.randint(1,139)
+    pic = random.choice(pics)
+    pics.remove(pic)
     
     if pic in dogs:
         s = 0
