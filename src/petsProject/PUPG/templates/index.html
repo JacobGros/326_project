@@ -1,26 +1,38 @@
 {% extends "generic.html" %}
 
 <head>
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/genericstyles.css' %}">
-</head>>
+{% load staticfiles %}
+{% block styles %}
+<link rel="stylesheet"  type="text/css" href="{% static 'css/styles.css' %}" />
+{% endblock %}
+</head>
 
 {% block content %}
 
-<h1>Welcome to PUPG! Cute pictures are at your fingertips!</h1>
-
+<h3>Welcome to PUPG! Cute pictures are at your fingertips!</h3>
 
 <ul>
 	<li><strong>Pet Submissions:</strong> {{ num_pets }}</li>
 	<li><strong>Users:</strong> {{ num_people }}</li>
 	
 </ul> 
+<div class="row">
+	<div class="col-sm-2"></div>
+	<div class="col-sm-8 .img-responsive"><img src="https://millbafs.com/wp-content/uploads/2014/01/group-of-pets-together-15229056.jpg" style="height:200px;"></div>
+	<div class="col-sm-2"></div>
+</div>
+<div class="row"><div class="col-sm-12"></div></div>
+<div class="row">
+	<div class="col-sm-1"></div>
+	<div class="col-sm-3"><p>Current Winner: </p><a href="{{ winner.get_absolute_url }}">{{ winner.name }}</a></div>
+	<div class="col-sm-4"><img src="{{winner.picture.url}}" style="width:160px;height:100px;"></div>
+	<div class="col-sm-3"><p>Owned by: </p> <a href="{{ winner.pet_owner.get_absolute_url }}">{{ winner.pet_owner.name }}</a></div>
+	<div class="col-sm-1"></div>
+</div>
 
-<p>Winner: </p><a href="{{ winner.get_absolute_url }}">{{ winner.name }}</a>
-
-<p>Owned by: </p> <a href="{{ winner.pet_owner.get_absolute_url }}">{{ winner.pet_owner.name }}</a>
-
-<img src="{{winner.picture.url}}" style="width:100px;height:100px;">
-
+<ul>         
+	<li><strong>Pet Submissions:</strong> {{ num_pets }}</li>         
+	<li><strong>Users:</strong> {{ num_people }}</li>  
+</ul>
 
 {% endblock %}

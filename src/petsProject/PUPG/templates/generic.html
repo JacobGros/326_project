@@ -7,14 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/genericstyles.css' %}">
+    {% block styles %}
+    {% endblock %}
     {% block title %}{% endblock %}
 </head>
 <body>
+
 	<div class="container-fluid">
 		<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">PUPG</a>
+	    <a href="#" class="navbar-left .img-responsive"><img src="https://files.slack.com/files-pri/TCRRTDTB5-FD6LS4DCM/logo.png" style="height:50px;"></a>
     </div>
     {% block sidebar %}
     <ul class="nav navbar-nav">
