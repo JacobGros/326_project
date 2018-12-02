@@ -93,6 +93,10 @@ def vote(request):
     return render(request, "versus.html", context=context)
 
 def vote_for_pet(request, id):
+    user = request.user
+    user.person.votes_given +=1
+    user.save()
+
     pet = Pet.objects.get(id=id)
     pet.vote_count += 1
     pet.save()
@@ -214,6 +218,8 @@ class PersonDetailView(generic.DetailView):
 
         context['pets'] = pets
         context['votes'] = profile_votes
+        context['votes_given'] = context['object'].votes_given
+        print( context['votes_given'])
         return context 
 
 
