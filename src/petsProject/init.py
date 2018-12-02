@@ -75,15 +75,15 @@ for x in range(150):
     print(" ")
 
 
-dogs = [1,10,11,12,2,4,]
+dogs = [1,10,11,12,2,4,32,33,34,35,55,56,57,58,]
 cats = [13,14,5,]
-birds = [15,21,]
-sm_mam = [3,6,]
-bugs = [7,19,20,]
-reptile = [8,18,]
+birds = [15,21,27,28,49,50,51,52,53,]
+sm_mam = [3,6,25,29,]
+bugs = [7,19,20,54,59,60,61,]
+reptile = [8,18,26,31,36,37,38,39,]
 rock = [9,22,23,24,]
-fish = [17,]
-horse = [16,]
+fish = [17,30,]
+horse = [16,40,41,42,43,44,45,46,47,48,]
 
 def add_specific_pet(name, species, age, pic, Image, BytesIO, Pet, random, ContentFile, users):
     u = random.randint(0,149)
@@ -106,7 +106,7 @@ for x in range(200):
 
     s = random.randint(0,8)
     u = random.randint(0,149)
-    pic = random.randint(1,24)
+    pic = random.randint(1,61)
     
     if pic in dogs:
         s = 0
