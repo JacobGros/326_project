@@ -1,0 +1,81 @@
+{% extends "generic.html" %}
+
+<!DOCTYPE html>
+<html>
+
+{% block content %}
+<head>
+<title>LeaderBoard</title>
+
+<a href="{% url 'leaderboard' %}" class="btn btn-default">Pets</a>
+
+
+<link rel="stylesheet" href="leaderBoardDraft1.css">
+</head>
+<style>
+table {
+    font-family: arial;
+    color: white;
+    border-collapse: collapse;
+    width: 100%;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    #background-color: #dddddd;
+
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+ 
+
+ <h1 align="center">Leader Board</h1>
+<form  type="get" action={% url 'leaderboardSpecies' %} style="margin: 1">
+ <input type="radio" name="sort_by" value="votes"># Of Votes &nbsp; 
+ <input type="radio" name="sort_by" value="submissions"># of Submissions  &nbsp;
+<button id="sort_sub" class="btn btn-default" type="submit" >Sort</button>
+ </form>
+ <br>
+ {{ m  }}
+
+
+<table>
+  <tr>
+    <th>Species</th>
+    <th>Vote Count</th>
+    <th># of Submissions</th>
+  </tr>
+
+
+
+
+  {% for species, votes, subs in tups %}
+
+<tr>
+
+	<td>{{ species }}</td>
+        <td>{{ votes }}</td>
+	<td>{{ subs }}</td>
+  
+</tr>
+
+
+{% endfor %}
+
+
+</table>
+
+
+
+
+
+ {% endblock %}
+</html>

@@ -7,6 +7,10 @@
 {% block content %}
 <head>
 <title>LeaderBoard</title>
+
+<a href="{% url 'leaderboardSpecies' %}" class="btn btn-default">Species</a>
+
+
 <link rel="stylesheet" href="leaderBoardDraft1.css">
 </head>
 <style>
@@ -53,7 +57,7 @@ tr:nth-child(even) {
 <input type="checkbox" name="showSM"> <label for=myCheckbox> Small Mammals </label> &nbsp;
 <input type="checkbox" name="showRocks"> <label for=myCheckbox> Rocks </label> &nbsp;
 <input type="checkbox" name="showBugs"> <label for=myCheckbox> Bugs </label> &nbsp;
- <button id="filter" type="submit" >Apply Filter(s)</button>
+<button id="filter" class="btn btn-default" type="submit" >Apply Filter(s)</button>
 
                </form>
 

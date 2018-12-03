@@ -103,6 +103,111 @@ def vote_for_pet(request, id):
     return HttpResponseRedirect('/PUPG/vote/')
 
 
+def leaderboardSpecies(request):
+
+    context = {} 
+
+    sort_by = request.GET.get('sort_by', None)
+   
+    message = ""
+
+    dogs =  Pet.objects.all().filter(animal_type = "Dog")
+    cats = Pet.objects.all().filter(animal_type = "Cat")
+    reptiles = Pet.objects.all().filter(animal_type = "Reptile")
+    fish = Pet.objects.all().filter(animal_type = "Fish")
+    birds = Pet.objects.all().filter(animal_type = "Bird")
+    horses = Pet.objects.all().filter(animal_type = "Horse")
+    sm_mams = Pet.objects.all().filter(animal_type = "Small Mammal")
+    rocks = Pet.objects.all().filter(animal_type = "Rock")
+    bugs = Pet.objects.all().filter(animal_type = "Bug")
+    
+    tups = []
+    dv = 0
+    cv = 0
+    rv = 0
+    fv = 0
+    bv = 0
+    hv = 0
+    sv = 0
+    rov = 0
+    biv = 0
+
+    nd = 0
+    nc = 0
+    nr = 0
+    nf = 0
+    nb = 0
+    nh = 0
+    ns = 0
+    nro = 0
+    nbi = 0
+
+
+    for pet in dogs:
+        dv = dv + pet.vote_count
+        nd = nd + 1
+    for pet in cats:
+        cv = cv + pet.vote_count
+        nc = nc + 1
+    for pet in reptiles:
+        rv = rv + pet.vote_count
+        nr = nr+1
+    for pet in fish:
+        fv = fv + pet.vote_count
+        nf = nf+1
+    for pet in horses:
+        hv = hv + pet.vote_count
+        nh = nh+1
+    for pet in sm_mams:
+        sv = sv + pet.vote_count
+        ns = ns+1
+    for pet in rocks:
+        rov = rov + pet.vote_count
+        nro = nro +1
+    for pet in bugs:
+        bv = bv + pet.vote_count
+        nb = nb+1
+    for pet in birds:
+        biv = biv + pet.vote_count
+        nbi = nbi+1
+    dt = ("Dogs", dv, nd)
+    ct = ("Cats",cv, nc)
+    rt = ("Reptiles", rv, nr)
+    ft = ("Fish",fv, nf)
+    ht = ("Horses", hv, nh)
+    st = ("Small Mammals",sv, ns)
+    rot = ("Rocks", rov, nro)
+    bt = ("Bugs",bv, nb)
+    bit = ("Birds", biv, nbi)
+
+    tups.append(dt)
+    tups.append(ct)
+    tups.append(rt)
+    tups.append(ft)
+    tups.append(bt)
+    tups.append(ht)
+    tups.append(st)
+    tups.append(rot)
+    tups.append(bit)
+
+    def takeSecond(elem):
+        return elem[1]
+    def takeThird(elem):
+        return elem[2]
+
+    if(not sort_by or sort_by == "votes"):
+        tups.sort(reverse = True, key=takeSecond)
+        message = "Sorting by Number of Votes"
+
+    else:
+        tups.sort(reverse = True, key=takeThird)
+        message = "Sorting by Number of Submissions"
+
+    context["tups"] = tups
+    context["m"] = message
+    return render(request, "leaderBoardSpecies.html", context=context)
+
+
 def leaderboard(request):
 
     num_pets = Pet.objects.all().count()
