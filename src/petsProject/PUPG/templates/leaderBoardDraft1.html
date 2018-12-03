@@ -55,9 +55,11 @@ tr:nth-child(even) {
 <input type="checkbox" name="showBugs"> <label for=myCheckbox> Bugs </label> &nbsp;
  <button id="filter" type="submit" >Apply Filter(s)</button>
 
-               </form> 
+               </form>
 
+	       <br> 
 
+	       {{ filtered_string }} 
 
   {% for pet in ordered_pets %}
 
