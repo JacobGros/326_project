@@ -9,10 +9,13 @@
 
 {% block content %}
 
+<div class="form-group">
+	&nbsp;
+</div>
 
 <div class="row">
 	<div class="col-sm-3"></div>
-	<div class="col-sm-6"><img src="https://millbafs.com/wp-content/uploads/2014/01/group-of-pets-together-15229056.jpg" class="img-responsive img-rounded" style="height:160px;"></div>
+	<div class="col-sm-6"><img src="https://i.imgur.com/cgbzWf6.png" class="img-responsive img-rounded" style="height:160px;"></div>
 	<div class="col-sm-3"></div>
 </div>
 
@@ -23,10 +26,11 @@
 	</div>
 	<div class="col-sm-1"></div>
 	<div class="col-sm-5">
-		<ul>
+		<!--<ul>
 			<li><strong>Pet Submissions:</strong> {{ num_pets }}</li>
 			<li><strong>Users:</strong> {{ num_people }}</li>
-		</ul>
+		</ul>-->
+		<p>Home of {{num_pets}} pet pictures submitted by {{num_people}} proud pet owners.<p>
 		<div class="row">
 			<div class="col-sm-3"><p>Current Winner: </p><a href="{{ winner.get_absolute_url }}">{{ winner.name }}</a></div>
 			<div class="col-sm-6"><img src="{{winner.picture.url}}" class="img-responsive"></div>
