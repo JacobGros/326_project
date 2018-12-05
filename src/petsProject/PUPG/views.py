@@ -26,15 +26,36 @@ def index(request):
     for pet in Pet.objects.all().order_by('-vote_count'):
         ordered_pets.append(pet)
 
-    
+    x = random.randint(1,(num_pets-1))
+
+    random_pet = ordered_pets[x]
+
+
+    verbs = ['invented','specializes in', 'wrote a book on', 'lectures on', 'owns', 'wants', 'obsesses over', 'studies', 'likes', 'eats', 'despises', 'prefers', 'enjoys the presence of', 'hates', 'loves',   ]
+
+    nouns = ['the works of William Shakespeare', 'pancakes', 'Robert Frost poems', 'cookies', 'computers', 'new shoes', 'designer brands', 'historical art', 'ice cream', 'money', 'clothes', 'mail', 'books', 'phones', 'classical music', 'science textbooks', 'math books', 'Lamborghinis', 'private yachts', 'limos', 'private jets', 'gold', 'candy', 'pickles']
+
+    awards = ['Best Snuggles', 'Strongest Pet', 'Most Successful Pet', 'Best Laugh', 'Best Smile', 'Most Athletic Pet', 'Best Dancer', 'Most Spirited Pet','Most Clumsy Pet','Bravest Pet','Smartest Pet','Busiest Pet','Most Productive Pet', 'Cleanest Pet', 'Most Optimistic Pet'
+            ]
+
+    r1 = random.randint(0,1)
+    random_sentence = ""
+
+    if r1 == 0:
+        random_sentence = random_pet.name + " " + verbs[random.randint(0,len(verbs)-1)] + " " + nouns[random.randint(0,len(nouns)-1)] + "!" 
+
+    if r1 == 2:
+        random_sentence = random_pet.name + " recently won the " + awards[random.randint(0,len(awards)-1)] + " Award!"
 
     context = {
             "num_pets": num_pets,
             "num_people": num_people,
             "winner": ordered_pets[0],
-            "random pet": ordered_pets[random.randint(0,(num_pets-1))]
+            "random_pet": ordered_pets[x],
+            "random_sentence": random_sentence,
             }
 
+    print(random_sentence)
 
 
     if request.user.is_authenticated:
