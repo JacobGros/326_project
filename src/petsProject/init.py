@@ -99,6 +99,16 @@ def add_specific_pet(name, species, age, pic, Image, BytesIO, Pet, random, Conte
 
     pet.save()
 
+    if(name == "Shelby"):
+        pet.vote_count = 1576
+        pet.save()
+    if(name == "Clara"):
+        pet.vote_count = 1544
+        pet.save()
+    if(name == "Pepper"):
+        pet.vote_count = 1532
+        pet.save()
+
     print("Pet " + pet.name + " who is a " + pet.animal_type + " has been assigned to " + users[u].person.name + "!")
 
 
@@ -153,6 +163,17 @@ for x in range(199):
 add_specific_pet("Lola", "Cat", 9, "lola", Image, BytesIO, Pet, random, ContentFile, users)
 add_specific_pet("Cinnabon", "Small Mammal", 5, "cinnabon", Image, BytesIO, Pet, random, ContentFile, users)
 add_specific_pet("Nacho", "Dog", 4, "nacho", Image, BytesIO, Pet, random, ContentFile, users)
+add_specific_pet("Shelby", "Dog", 11, "shelby", Image, BytesIO, Pet, random, ContentFile, users)
+add_specific_pet("Clara", "Dog", 6, "clara", Image, BytesIO, Pet, random, ContentFile, users)
+add_specific_pet("Pepper", "Reptile", 1, "pepper", Image, BytesIO, Pet, random, ContentFile, users)
+add_specific_pet("Chester", "Dog", 2, "chester", Image, BytesIO, Pet, random, ContentFile, users)
+add_specific_pet("Nilly", "Bird", 4, "nilly", Image, BytesIO, Pet, random, ContentFile, users)
+add_specific_pet("Shadow", "Cat", 13, "shadow", Image, BytesIO, Pet, random, ContentFile, users)
+add_specific_pet("Mooch", "Cat", 5, "mooch", Image, BytesIO, Pet, random, ContentFile, users)
+add_specific_pet("Peaches", "Cat", 2, "peaches", Image, BytesIO, Pet, random, ContentFile, users)
+
+
+
 
 username = "admin"
 password = "admin"
