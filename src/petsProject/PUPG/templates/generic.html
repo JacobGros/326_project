@@ -46,7 +46,11 @@ body {
 	  {% else %}
 	  <li><a href="{% url 'login' %}">Login</a></li>
 	  {% endif %}
-      
+     
+
+	<li><a href="{% url 'help' %}">Help</a></li>
+
+
        <li><form  type="get" action={% url 'search' %} style="margin: 1">
     <input  id="search_box" type="text" name="search_box"  placeholder="Search... " >
     <input type="radio" name="models" value="Pets" checked><span style="color:gray;">Search Pets</span> 
