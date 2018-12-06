@@ -44,7 +44,7 @@ def index(request):
     if r1 == 0:
         random_sentence = random_pet.name + " " + verbs[random.randint(0,len(verbs)-1)] + " " + nouns[random.randint(0,len(nouns)-1)] + "!" 
 
-    if r1 == 2:
+    if r1 == 1:
         random_sentence = random_pet.name + " recently won the " + awards[random.randint(0,len(awards)-1)] + " Award!"
 
     context = {
