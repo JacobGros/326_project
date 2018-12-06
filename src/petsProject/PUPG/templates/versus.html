@@ -6,20 +6,17 @@
 <link rel="stylesheet" versus.css">
   
     <center> <br><br>
-      <font size="13"><b> CHOOSE THE CUTEST PET!
-        <br><br>
-	 <img src="{{c1.picture.url}}" style="width:250px;height:250px;">   &nbsp;   VS  &nbsp; <img src="{{c2.picture.url}}" style="width:250px;height:250px;">
-	 <br>
-
-	 <font size="4"><b><a href="{{ c1.get_absolute_url }}">{{ c1.name }}</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; <a href="{{ c2.get_absolute_url }}">{{ c2.name }}</a>
+      <font face= "veranda" size="13"><b> CHOOSE THE CUTEST PET!
+        <br>
+	<font size="6"><b>{{ c1.name }}</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ c2.name }}
  
-      <br>
-      Owner:  <a href="{{ c1.pet_owner.get_absolute_url }}">{{ c1.pet_owner.name }}</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Owner: <a href="{{ c2.pet_owner.get_absolute_url }}">{{ c2.pet_owner.name }}</a>
+    <br>
+    <a href="{{ c1.get_absolute_url }}">	
+	<img src="{{c1.picture.url}}" style="width:250px;height:250px;" title= " Owner: {{ c1.pet_owner.name }}"></a>   &nbsp;   VS  &nbsp; <a href="{{ c2.get_absolute_url }}"><img src="{{c2.picture.url}}" style="width:250px;height:250px;" title= " Owner: {{ c1.pet_owner.name }}"></a>
+	<br>
 
-	<br> 
-
-	<a href="vote/{{c1.id}}" class="btn btn-default" >Vote for {{c1.name}} !</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-	<a href="vote/{{c2.id}}" class="btn btn-default">Vote for {{c2.name}} !</a>
+	<a href="vote/{{c1.id}}" class="btn btn-default" ><b>Vote for {{c1.name}} !</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+	<a href="vote/{{c2.id}}" class="btn btn-default"><b>Vote for {{c2.name}} !</a>
 
       
 
