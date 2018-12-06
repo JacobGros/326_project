@@ -66,6 +66,10 @@ def index(request):
 
     return render(request, "index.html", context=context)
 
+def help(request):
+    return render(request, "help.html")
+
+
 @login_required
 def vote(request):
 
